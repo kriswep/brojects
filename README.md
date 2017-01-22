@@ -1,10 +1,10 @@
-# <brojects>
+# &lt;brojects&gt;
 
 Better Github projects.
 
 Interactive and flexible project management on top of Github projects.
 
--------------------------------------
+------
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
