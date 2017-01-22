@@ -1,0 +1,1 @@
+export const SET_AUTHTOKEN = 'brojects/action/SET_AUTHTOKEN';
