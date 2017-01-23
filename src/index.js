@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './containers/App';
 import './index.css';
 
-ReactDOM.render(
+export default ReactDOM.render(
   <App />,
-  document.getElementById('root')
+  document.getElementById('root') || document.createElement('div')
 );

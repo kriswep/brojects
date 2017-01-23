@@ -1,0 +1,15 @@
+exports[`configureStore the store should configure store with given initial state 1`] = `
+Object {
+  "auth": Object {
+    "authToken": "initialToken",
+  },
+}
+`;
+
+exports[`configureStore the store should configure store with proper inital state 1`] = `
+Object {
+  "auth": Object {
+    "authToken": false,
+  },
+}
+`;

@@ -5,16 +5,16 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
+      <section className="App">
+        <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>&lt;BROJECTS&gt;</h2>
           <p>Better Github projects</p>
-        </div>
+        </header>
         <p className="App-intro">
           Interactive and flexible project management on top of Github projects.
         </p>
-      </div>
+      </section>
     );
   }
 }
