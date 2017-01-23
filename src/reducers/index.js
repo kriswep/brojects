@@ -18,4 +18,10 @@ export const authReducer = (state = {
     default:
       return state;
   }
-}
+};
+
+const rootReducer = combineReducers({
+  auth: authReducer,
+});
+
+export default rootReducer;
