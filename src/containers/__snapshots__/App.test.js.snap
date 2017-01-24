@@ -1,0 +1,18 @@
+exports[`App mapDispatchToProps should handle onChange 1`] = `
+Array [
+  Array [
+    Object {
+      "authtoken": "something",
+      "type": "brojects/action/SET_AUTHTOKEN",
+    },
+  ],
+]
+`;
+
+exports[`App mapStateToProps should pass auth object 1`] = `
+Object {
+  "auth": Object {
+    "some": "value",
+  },
+}
+`;

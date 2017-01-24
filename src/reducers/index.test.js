@@ -2,7 +2,7 @@ import * as ActionTypes from '../actions/constants';
 
 import { initialAuthState, authReducer } from '../reducers';
 
-const authToken = 'secretToken';
+const authtoken = 'secretToken';
 
 describe('App Reducers', () => {
   describe('authReducers', () => {
@@ -12,12 +12,12 @@ describe('App Reducers', () => {
 
     it('should handle the SET_AUTHTOKEN action', () => {
       const expectedState = {
-        authToken,
+        authtoken,
       }
       expect(
         authReducer(undefined, {
           type: ActionTypes.SET_AUTHTOKEN,
-          authToken,
+          authtoken,
         })
       ).toEqual(expectedState);
 
@@ -25,15 +25,15 @@ describe('App Reducers', () => {
 
     it('should handle the SET_AUTHTOKEN action with prev state', () => {
       const prevState = {
-        authToken: 'prevToken',
+        authtoken: 'prevToken',
       };
       const expectedState = {
-        authToken,
+        authtoken,
       }
       expect(
         authReducer(prevState, {
           type: ActionTypes.SET_AUTHTOKEN,
-          authToken,
+          authtoken,
         })
       ).toEqual(expectedState);
 

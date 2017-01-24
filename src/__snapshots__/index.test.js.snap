@@ -1,1 +1,1 @@
-exports[`index renders without crashing 1`] = `"{\"props\":{},\"context\":{},\"refs\":{},\"updater\":{},\"_reactInternalInstance\":\"censored\",\"state\":null}"`;
+exports[`index renders without crashing 1`] = `"{\"props\":{\"store\":{},\"children\":{\"key\":null,\"ref\":null,\"props\":{},\"_owner\":null,\"_store\":{}}},\"context\":{},\"refs\":{},\"updater\":{},\"store\":{},\"_reactInternalInstance\":\"censored\",\"state\":null}"`;

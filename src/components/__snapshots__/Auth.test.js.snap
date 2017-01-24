@@ -1,0 +1,15 @@
+exports[`Auth renders as expected 1`] = `
+<section>
+  <form
+    onSubmit={undefined}>
+    <label
+      htmlFor="authtoken">
+      Please provide your auth token
+    </label>
+    <input
+      id="authtoken"
+      onChange={undefined}
+      value={undefined} />
+  </form>
+</section>
+`;

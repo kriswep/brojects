@@ -3,17 +3,17 @@ import { combineReducers } from 'redux'
 import * as ActionTypes from '../actions/constants';
 
 export const initialAuthState = {
-  authToken: false
+  authtoken: false
 };
 
 export const authReducer = (state = {
-  authToken: false
+  authtoken: false
 }, action) => {
   switch (action.type) {
     case ActionTypes.SET_AUTHTOKEN:
       return {
         ...state,
-        authToken: action.authToken,
+        authtoken: action.authtoken,
       };
     default:
       return state;
