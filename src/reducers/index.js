@@ -1,14 +1,13 @@
 import { combineReducers } from 'redux'
 
 import * as ActionTypes from '../actions/constants';
+import columnDataReducer from './columnData';
 
 export const initialAuthState = {
-  authtoken: false
+  authtoken: false,
 };
 
-export const authReducer = (state = {
-  authtoken: false
-}, action) => {
+export const authReducer = (state = initialAuthState, action) => {
   switch (action.type) {
     case ActionTypes.SET_AUTHTOKEN:
       return {
@@ -22,6 +21,7 @@ export const authReducer = (state = {
 
 const rootReducer = combineReducers({
   auth: authReducer,
+  column: columnDataReducer,
 });
 
 export default rootReducer;

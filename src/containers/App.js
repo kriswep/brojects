@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
 import Auth from '../components/Auth';
-import { setAuthtoken } from '../actions';
+import { setAuthtoken, getColumnData } from '../actions';
 import logo from './logo.svg';
 import './App.css';
 
@@ -30,24 +30,26 @@ export class App extends Component {
 export const mapStateToProps = (state) => {
   return {
     auth: state.auth,
+    column: state.column,
   }
 }
 
 export const mapDispatchToProps = (dispatch) => {
   return {
     onChange: (event) => {
-      dispatch(setAuthtoken(event.target.value))
+      dispatch(setAuthtoken(event.target.value));
     },
     onSubmit: (event) => {
-      // TODO
+      //TODO
       event.preventDefault();
+      dispatch(getColumnData('575404'));
     }
   }
 }
 
 const ConnectedApp = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(App);
 
 export default ConnectedApp;

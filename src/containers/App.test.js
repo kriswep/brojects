@@ -39,17 +39,19 @@ describe('App', () => {
       dispatchedProps.onChange(fixture);
       expect(dispatch.mock.calls.length).toBe(1);
       expect(dispatch.mock.calls).toMatchSnapshot();
-
     });
+
     it('should handle onSubmit', () => {
+      const dispatch = jest.fn();
       const preventDefault = jest.fn();
-      const dispatchedProps = mapDispatchToProps();
+      const dispatchedProps = mapDispatchToProps(dispatch);
       const fixture = {
         preventDefault
       };
       dispatchedProps.onSubmit(fixture);
       expect(preventDefault.mock.calls.length).toBe(1);
-
+      expect(dispatch.mock.calls.length).toBe(1);
+      expect(dispatch.mock.calls).toMatchSnapshot();
     });
   });
 

@@ -3,6 +3,11 @@ Object {
   "auth": Object {
     "authToken": "initialToken",
   },
+  "column": Object {
+    "data": Object {},
+    "error": false,
+    "loading": false,
+  },
 }
 `;
 
@@ -10,6 +15,11 @@ exports[`configureStore the store should configure store with proper inital stat
 Object {
   "auth": Object {
     "authtoken": false,
+  },
+  "column": Object {
+    "data": Object {},
+    "error": false,
+    "loading": false,
   },
 }
 `;

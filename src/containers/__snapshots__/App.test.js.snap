@@ -9,10 +9,22 @@ Array [
 ]
 `;
 
+exports[`App mapDispatchToProps should handle onSubmit 1`] = `
+Array [
+  Array [
+    Object {
+      "columnId": "575404",
+      "type": "brojects/action/GET_COLUMN_DATA",
+    },
+  ],
+]
+`;
+
 exports[`App mapStateToProps should pass auth object 1`] = `
 Object {
   "auth": Object {
     "some": "value",
   },
+  "column": undefined,
 }
 `;
