@@ -19,6 +19,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "test:debug": "node --debug-brk ./node_modules/react-scripts/scripts/test.js --env=jsdom",
+    "test:debug2": "node --debug-brk ./node_modules/.bin/react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

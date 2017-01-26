@@ -15,19 +15,20 @@ const api = request => store => next => action => {
           Authorization: `token ${auth.authtoken}`,
         }),
       };
-      request('https://api.github.com/projects/columns/575404', options)
+      // return promise for easier testing
+      return request('https://api.github.com/projects/columns/575404', options)
         .then((json) => next({
           type: ActionTypes.GET_COLUMN_DATA_RECEIVED,
           data: json,
         }))
-        .catch((err) => next({
+        .catch((error) => next({
           type: ActionTypes.GET_COLUMN_DATA_ERROR,
-          err
+          error
         }));
-      break;
+
     default:
-      // nothing todo
-      break;
+      // return promise for easier testing
+      return Promise.resolve('done doing nothing');
   }
 
 };
