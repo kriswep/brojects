@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
 import Auth from '../components/Auth';
-import { setAuthtoken, getColumnData } from '../actions';
+import { setAuthtoken } from '../actions/auth';
+import { getColumnData } from '../actions/columns';
 import logo from './logo.svg';
 import './App.css';
 
@@ -30,6 +31,7 @@ export class App extends Component {
 export const mapStateToProps = (state) => {
   return {
     auth: state.auth,
+    repos: state.repos,
     column: state.column,
   }
 }

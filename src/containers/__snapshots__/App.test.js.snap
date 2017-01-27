@@ -26,5 +26,6 @@ Object {
     "some": "value",
   },
   "column": undefined,
+  "repos": undefined,
 }
 `;

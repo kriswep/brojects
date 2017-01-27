@@ -1,31 +1,31 @@
 import * as ActionTypes from '../actions/constants';
 
-import columnDataReducer, { initialAuthState } from './columnData';
+import reposReducer, { initialReposState } from './repos';
 
 const fixture = {
   some: 'object',
 };
 
-describe('Column Reducers', () => {
+describe('Repos Reducers', () => {
   describe('columnDataReducer', () => {
     it('should return the initial state', () => {
-      expect(columnDataReducer(undefined, {})).toEqual(initialAuthState);
+      expect(reposReducer(undefined, {})).toEqual(initialReposState);
     });
 
-    it('should handle the GET_COLUMN_DATA action', () => {
+    it('should handle the GET_REPOS action', () => {
       const expectedState = {
         loading: true,
         error: false,
         data: {},
       }
       expect(
-        columnDataReducer(undefined, {
-          type: ActionTypes.GET_COLUMN_DATA,
+        reposReducer(undefined, {
+          type: ActionTypes.GET_REPOS,
         })
       ).toEqual(expectedState);
     });
 
-    it('should handle the GET_COLUMN_DATA action with prev state', () => {
+    it('should handle the GET_REPOS action with prev state', () => {
       const prevState = {
         loading: false,
         error: false,
@@ -37,27 +37,27 @@ describe('Column Reducers', () => {
         data: fixture,
       }
       expect(
-        columnDataReducer(prevState, {
-          type: ActionTypes.GET_COLUMN_DATA,
+        reposReducer(prevState, {
+          type: ActionTypes.GET_REPOS,
         })
       ).toEqual(expectedState);
     });
 
-    it('should handle the GET_COLUMN_DATA_RECEIVED action', () => {
+    it('should handle the GET_REPOS_RECEIVED action', () => {
       const expectedState = {
         loading: false,
         error: false,
         data: fixture,
       }
       expect(
-        columnDataReducer(undefined, {
-          type: ActionTypes.GET_COLUMN_DATA_RECEIVED,
+        reposReducer(undefined, {
+          type: ActionTypes.GET_REPOS_RECEIVED,
           data: fixture,
         })
       ).toEqual(expectedState);
     });
 
-    it('should handle the GET_COLUMN_DATA_RECEIVED action with prev state', () => {
+    it('should handle the GET_REPOS_RECEIVED action with prev state', () => {
       const prevState = {
         loading: true,
         error: true,
@@ -71,28 +71,28 @@ describe('Column Reducers', () => {
         data: fixture,
       }
       expect(
-        columnDataReducer(prevState, {
-          type: ActionTypes.GET_COLUMN_DATA_RECEIVED,
+        reposReducer(prevState, {
+          type: ActionTypes.GET_REPOS_RECEIVED,
           data: fixture
         })
       ).toEqual(expectedState);
     });
 
-    it('should handle the GET_COLUMN_DATA_ERROR action', () => {
+    it('should handle the GET_REPOS_ERROR action', () => {
       const expectedState = {
         loading: false,
         error: fixture,
         data: {},
       }
       expect(
-        columnDataReducer(undefined, {
-          type: ActionTypes.GET_COLUMN_DATA_ERROR,
+        reposReducer(undefined, {
+          type: ActionTypes.GET_REPOS_ERROR,
           error: fixture,
         })
       ).toEqual(expectedState);
     });
 
-    it('should handle the GET_COLUMN_DATA_ERROR action with prev state', () => {
+    it('should handle the GET_REPOS_ERROR action with prev state', () => {
       const prevState = {
         loading: false,
         error: {
@@ -106,8 +106,8 @@ describe('Column Reducers', () => {
         data: {},
       }
       expect(
-        columnDataReducer(prevState, {
-          type: ActionTypes.GET_COLUMN_DATA_ERROR,
+        reposReducer(prevState, {
+          type: ActionTypes.GET_REPOS_ERROR,
           error: fixture,
         })
       ).toEqual(expectedState);

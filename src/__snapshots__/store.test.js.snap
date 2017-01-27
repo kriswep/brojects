@@ -8,6 +8,11 @@ Object {
     "error": false,
     "loading": false,
   },
+  "repos": Object {
+    "data": Object {},
+    "error": false,
+    "loading": false,
+  },
 }
 `;
 
@@ -17,6 +22,11 @@ Object {
     "authtoken": false,
   },
   "column": Object {
+    "data": Object {},
+    "error": false,
+    "loading": false,
+  },
+  "repos": Object {
     "data": Object {},
     "error": false,
     "loading": false,
