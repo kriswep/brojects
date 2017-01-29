@@ -24,7 +24,7 @@ const api = request => store => next => action => {
           }))
           .catch((error) => next({
             type: ActionTypes.GET_COLUMN_DATA_ERROR,
-            error
+            error: error.response.statusText,
           }));
       }
     case ActionTypes.GET_REPOS:
@@ -45,7 +45,7 @@ const api = request => store => next => action => {
           }))
           .catch((error) => next({
             type: ActionTypes.GET_REPOS_ERROR,
-            error
+            error: error.response.statusText,
           }));
       }
     default:

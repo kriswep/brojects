@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Auth = ({ onSubmit, onChange, authtoken }) => (
+const Auth = ({ onSubmit, onChange, onClick, authtoken }) => (
   <section>
     <form onSubmit={onSubmit}>
       <label htmlFor="authtoken">Please provide your auth token</label>
@@ -8,8 +8,12 @@ const Auth = ({ onSubmit, onChange, authtoken }) => (
         id="authtoken"
         onChange={onChange}
         value={authtoken}
-      />
+        />
     </form>
+    <button
+      onClick={onClick}
+      >Get Repos
+    </button>
   </section>
 )
 

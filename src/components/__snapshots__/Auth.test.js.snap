@@ -11,5 +11,9 @@ exports[`Auth renders as expected 1`] = `
       onChange={undefined}
       value={undefined} />
   </form>
+  <button
+    onClick={undefined}>
+    Get Repos
+  </button>
 </section>
 `;

@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import Auth from '../components/Auth';
 import { setAuthtoken } from '../actions/auth';
 import { getColumnData } from '../actions/columns';
+import { getRepos } from '../actions/repos';
 import logo from './logo.svg';
 import './App.css';
 
@@ -22,6 +23,7 @@ export class App extends Component {
         <Auth
           onChange={this.props.onChange}
           onSubmit={this.props.onSubmit}
+          onClick={this.props.onClick}
           authToken={this.props.authToken}/>
       </section>
     );
@@ -45,6 +47,10 @@ export const mapDispatchToProps = (dispatch) => {
       //TODO
       event.preventDefault();
       dispatch(getColumnData('575404'));
+    },
+    onClick: (event) => {
+      event.preventDefault();
+      dispatch(getRepos());
     }
   }
 }

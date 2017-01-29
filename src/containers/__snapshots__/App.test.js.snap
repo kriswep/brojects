@@ -9,6 +9,16 @@ Array [
 ]
 `;
 
+exports[`App mapDispatchToProps should handle onClick 1`] = `
+Array [
+  Array [
+    Object {
+      "type": "brojects/action/GET_REPOS",
+    },
+  ],
+]
+`;
+
 exports[`App mapDispatchToProps should handle onSubmit 1`] = `
 Array [
   Array [

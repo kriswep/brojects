@@ -45,7 +45,7 @@ describe('Api middleware', () => {
         }
       };
       const request = jest.fn();
-      request.mockReturnValue(Promise.resolve({ col: "something" }));
+      request.mockReturnValue(Promise.resolve({ col: 'something' }));
       // const options = {
       //   headers: new Headers({
       //     Accept: 'application/vnd.github.inertia-preview+json',
@@ -54,7 +54,7 @@ describe('Api middleware', () => {
       // };
       const expectedReturn = {
         type: ActionTypes.GET_COLUMN_DATA_RECEIVED,
-        data: { col: "something" },
+        data: { col: 'something' },
       };
 
 
@@ -80,12 +80,21 @@ describe('Api middleware', () => {
       const request = jest.fn();
       request.mockReturnValue(
         new Promise((resolve, reject) => {
-          reject(new Error('whoops'));
+          const err = {
+            response: {
+              statusText: 'whoops',
+            }
+          }
+          reject(err);
         })
       );
+      const expectedReturn = {
+        type: ActionTypes.GET_COLUMN_DATA_ERROR,
+        error: 'whoops',
+      };
 
       dispatchWithStoreOf(request, store, action, (returnValue) => {
-        // expect(returnValue.error).toEqual(expectedReturn);
+        expect(returnValue).toEqual(expectedReturn);
         expect(returnValue.error).toBeDefined();
         done();
       });
@@ -108,10 +117,10 @@ describe('Api middleware', () => {
         }
       };
       const request = jest.fn();
-      request.mockReturnValue(Promise.resolve({ col: "something" }));
+      request.mockReturnValue(Promise.resolve({ col: 'something' }));
       const expectedReturn = {
         type: ActionTypes.GET_REPOS_RECEIVED,
-        data: { col: "something" },
+        data: { col: 'something' },
       };
 
 
@@ -137,11 +146,21 @@ describe('Api middleware', () => {
       const request = jest.fn();
       request.mockReturnValue(
         new Promise((resolve, reject) => {
-          reject(new Error('whoops'));
+          const err = {
+            response: {
+              statusText: 'whoops',
+            }
+          }
+          reject(err);
         })
       );
+      const expectedReturn = {
+        type: ActionTypes.GET_REPOS_ERROR,
+        error: 'whoops',
+      };
 
       dispatchWithStoreOf(request, store, action, (returnValue) => {
+        expect(returnValue).toEqual(expectedReturn);
         expect(returnValue.error).toBeDefined();
         done();
       });

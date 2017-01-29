@@ -53,6 +53,20 @@ describe('App', () => {
       expect(dispatch.mock.calls.length).toBe(1);
       expect(dispatch.mock.calls).toMatchSnapshot();
     });
+
+    it('should handle onClick', () => {
+      const dispatch = jest.fn();
+      const preventDefault = jest.fn();
+      const dispatchedProps = mapDispatchToProps(dispatch);
+      const fixture = {
+        preventDefault
+      };
+      dispatchedProps.onClick(fixture);
+      expect(preventDefault.mock.calls.length).toBe(1);
+      expect(dispatch.mock.calls.length).toBe(1);
+      expect(dispatch.mock.calls).toMatchSnapshot();
+    });
+
   });
 
 });
