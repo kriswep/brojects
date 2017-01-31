@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { shallow } from 'enzyme';
 import ReactTestRenderer from 'react-test-renderer';
+// import { shallow } from 'enzyme';
 
 import Auth from './Auth';
 
