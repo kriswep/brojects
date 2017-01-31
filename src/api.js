@@ -9,6 +9,7 @@ const api = request => store => next => action => {
       {
         // This is an api request wo want to handle here
         const { auth } = store.getState();
+        const columnId = action.columnId;
 
         const options = {
           headers: new Headers({
@@ -17,7 +18,7 @@ const api = request => store => next => action => {
           }),
         };
         // return promise for easier testing
-        return request('https://api.github.com/projects/columns/575404', options)
+        return request(`https://api.github.com/projects/columns/${columnId}`, options)
           .then((json) => next({
             type: ActionTypes.GET_COLUMN_DATA_RECEIVED,
             data: json,
