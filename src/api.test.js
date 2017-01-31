@@ -117,10 +117,10 @@ describe('Api middleware', () => {
         }
       };
       const request = jest.fn();
-      request.mockReturnValue(Promise.resolve({ col: 'something' }));
+      request.mockReturnValue(Promise.resolve({ repo: 'something' }));
       const expectedReturn = {
         type: ActionTypes.GET_REPOS_RECEIVED,
-        data: { col: 'something' },
+        data: { repo: 'something' },
       };
 
 
@@ -171,6 +171,73 @@ describe('Api middleware', () => {
 
   });
 
+
+
+
+  describe('GET_PROJECTS', () => {
+    it('should format the response correctly on success', (done) => {
+      const action = {
+        type: ActionTypes.GET_PROJECTS,
+      }
+      const store = {
+        auth: {
+          authtoken: 'secret',
+        }
+      };
+      const request = jest.fn();
+      request.mockReturnValue(Promise.resolve({ project: 'something' }));
+      const expectedReturn = {
+        type: ActionTypes.GET_PROJECTS_RECEIVED,
+        data: { project: 'something' },
+      };
+
+
+      dispatchWithStoreOf(request, store, action, (returnValue) => {
+        expect(returnValue).toEqual(expectedReturn);
+        done();
+      });
+
+      expect(request.mock.calls[0][0].indexOf('api.github.com') > 0).toBe(true);
+
+
+    });
+
+    it('should handle error', (done) => {
+      const action = {
+        type: ActionTypes.GET_PROJECTS,
+      }
+      const store = {
+        auth: {
+          authtoken: 'secret',
+        }
+      };
+      const request = jest.fn();
+      request.mockReturnValue(
+        new Promise((resolve, reject) => {
+          const err = {
+            response: {
+              statusText: 'whoops',
+            }
+          }
+          reject(err);
+        })
+      );
+      const expectedReturn = {
+        type: ActionTypes.GET_PROJECTS_ERROR,
+        error: 'whoops',
+      };
+
+      dispatchWithStoreOf(request, store, action, (returnValue) => {
+        expect(returnValue).toEqual(expectedReturn);
+        expect(returnValue.error).toBeDefined();
+        done();
+      });
+
+      expect(request.mock.calls[0][0].indexOf('api.github.com') > 0).toBe(true);
+
+    });
+
+  });
 
 
 });

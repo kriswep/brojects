@@ -1,31 +1,31 @@
 import * as ActionTypes from '../actions/constants';
 
-import reposReducer, { initialReposState } from './repos';
+import projectsReducer, { initialReposState } from './projects';
 
 const fixture = {
-  some: 'object',
+  some: 'project',
 };
 
-describe('Repos Reducers', () => {
-  describe('reposReducer', () => {
+describe('Projects Reducers', () => {
+  describe('projectsReducer', () => {
     it('should return the initial state', () => {
-      expect(reposReducer(undefined, {})).toEqual(initialReposState);
+      expect(projectsReducer(undefined, {})).toEqual(initialReposState);
     });
 
-    it('should handle the GET_REPOS action', () => {
+    it('should handle the GET_PROJECTS action', () => {
       const expectedState = {
         loading: true,
         error: false,
         data: {},
       }
       expect(
-        reposReducer(undefined, {
-          type: ActionTypes.GET_REPOS,
+        projectsReducer(undefined, {
+          type: ActionTypes.GET_PROJECTS,
         })
       ).toEqual(expectedState);
     });
 
-    it('should handle the GET_REPOS action with prev state', () => {
+    it('should handle the GET_PROJECTS action with prev state', () => {
       const prevState = {
         loading: false,
         error: false,
@@ -37,32 +37,32 @@ describe('Repos Reducers', () => {
         data: fixture,
       }
       expect(
-        reposReducer(prevState, {
-          type: ActionTypes.GET_REPOS,
+        projectsReducer(prevState, {
+          type: ActionTypes.GET_PROJECTS,
         })
       ).toEqual(expectedState);
     });
 
-    it('should handle the GET_REPOS_RECEIVED action', () => {
+    it('should handle the GET_PROJECTS_RECEIVED action', () => {
       const expectedState = {
         loading: false,
         error: false,
         data: fixture,
       }
       expect(
-        reposReducer(undefined, {
-          type: ActionTypes.GET_REPOS_RECEIVED,
+        projectsReducer(undefined, {
+          type: ActionTypes.GET_PROJECTS_RECEIVED,
           data: fixture,
         })
       ).toEqual(expectedState);
     });
 
-    it('should handle the GET_REPOS_RECEIVED action with prev state', () => {
+    it('should handle the GET_PROJECTS_RECEIVED action with prev state', () => {
       const prevState = {
         loading: true,
         error: true,
         data: {
-          old: 'col',
+          old: 'project',
         },
       };
       const expectedState = {
@@ -71,28 +71,28 @@ describe('Repos Reducers', () => {
         data: fixture,
       }
       expect(
-        reposReducer(prevState, {
-          type: ActionTypes.GET_REPOS_RECEIVED,
+        projectsReducer(prevState, {
+          type: ActionTypes.GET_PROJECTS_RECEIVED,
           data: fixture
         })
       ).toEqual(expectedState);
     });
 
-    it('should handle the GET_REPOS_ERROR action', () => {
+    it('should handle the GET_PROJECTS_ERROR action', () => {
       const expectedState = {
         loading: false,
         error: fixture,
         data: {},
       }
       expect(
-        reposReducer(undefined, {
-          type: ActionTypes.GET_REPOS_ERROR,
+        projectsReducer(undefined, {
+          type: ActionTypes.GET_PROJECTS_ERROR,
           error: fixture,
         })
       ).toEqual(expectedState);
     });
 
-    it('should handle the GET_REPOS_ERROR action with prev state', () => {
+    it('should handle the GET_PROJECTS_ERROR action with prev state', () => {
       const prevState = {
         loading: false,
         error: {
@@ -106,8 +106,8 @@ describe('Repos Reducers', () => {
         data: {},
       }
       expect(
-        reposReducer(prevState, {
-          type: ActionTypes.GET_REPOS_ERROR,
+        projectsReducer(prevState, {
+          type: ActionTypes.GET_PROJECTS_ERROR,
           error: fixture,
         })
       ).toEqual(expectedState);

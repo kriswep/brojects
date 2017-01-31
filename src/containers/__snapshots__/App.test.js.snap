@@ -16,6 +16,12 @@ Array [
       "type": "brojects/action/GET_REPOS",
     },
   ],
+  Array [
+    Object {
+      "repoFullName": "kriswep/modern-modular-javascript",
+      "type": "brojects/action/GET_PROJECTS",
+    },
+  ],
 ]
 `;
 

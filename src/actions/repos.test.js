@@ -5,7 +5,6 @@ import {
   getReposReceived,
   getReposError,
 } from '../actions/repos';
-
 describe('Repos Actions', () => {
   describe('getRepos', () => {
     it('should return the correct type', () => {

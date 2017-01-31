@@ -63,7 +63,7 @@ describe('App', () => {
       };
       dispatchedProps.onClick(fixture);
       expect(preventDefault.mock.calls.length).toBe(1);
-      expect(dispatch.mock.calls.length).toBe(1);
+      expect(dispatch.mock.calls.length).toBe(2);
       expect(dispatch.mock.calls).toMatchSnapshot();
     });
 

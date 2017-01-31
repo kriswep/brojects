@@ -7,3 +7,8 @@ export const GET_COLUMN_DATA_ERROR = 'brojects/action/GET_COLUMN_DATA_ERROR';
 export const GET_REPOS = 'brojects/action/GET_REPOS';
 export const GET_REPOS_RECEIVED = 'brojects/action/GET_REPOS_RECEIVED';
 export const GET_REPOS_ERROR = 'brojects/action/GET_REPOS_ERROR';
+
+export const GET_PROJECTS = 'brojects/action/GET_PROJECTS';
+export const GET_PROJECTS_RECEIVED = 'brojects/action/GET_PROJECTS_RECEIVED';
+export const GET_PROJECTS_ERROR = 'brojects/action/GET_PROJECTS_ERROR';
+

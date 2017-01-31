@@ -7,6 +7,18 @@ import {
 } from '../actions/columns';
 
 describe('Columns Actions', () => {
+  describe('getColumnData', () => {
+    const fixture = 'columnId';
+    it('should return the correct type', () => {
+      const expectedResult = {
+        type: ActionTypes.GET_COLUMN_DATA,
+        columnId: fixture,
+      };
+
+      expect(getColumnData(fixture)).toEqual(expectedResult);
+    });
+  });
+
   describe('getColumnDataReceived', () => {
     it('should return the correct type', () => {
       const fixture = {
