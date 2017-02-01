@@ -5,6 +5,29 @@ const api = request => store => next => action => {
   // Pass through by default
   next(action);
   switch (action.type) {
+    case ActionTypes.GET_COLUMNS:
+      {
+        // This is an api request wo want to handle here
+        const { auth } = store.getState();
+        const projectId = action.projectId;
+
+        const options = {
+          headers: new Headers({
+            Accept: 'application/vnd.github.inertia-preview+json',
+            Authorization: `token ${auth.authtoken}`,
+          }),
+        };
+        // return promise for easier testing
+        return request(`https://api.github.com/projects/${projectId}/columns`, options)
+          .then((json) => next({
+            type: ActionTypes.GET_COLUMNS_RECEIVED,
+            data: json,
+          }))
+          .catch((error) => next({
+            type: ActionTypes.GET_COLUMNS_ERROR,
+            error: error.response.statusText,
+          }));
+      }
     case ActionTypes.GET_COLUMN_DATA:
       {
         // This is an api request wo want to handle here

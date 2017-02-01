@@ -12,7 +12,7 @@ const Auth = ({ onSubmit, onChange, onClick, authtoken }) => (
     </form>
     <button
       onClick={onClick}
-      >Get Repos/Projects
+      >Get Stuff
     </button>
   </section>
 )

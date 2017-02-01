@@ -13,7 +13,7 @@ exports[`Auth renders as expected 1`] = `
   </form>
   <button
     onClick={undefined}>
-    Get Repos/Projects
+    Get Stuff
   </button>
 </section>
 `;

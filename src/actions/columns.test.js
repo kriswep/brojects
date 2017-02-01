@@ -1,49 +1,49 @@
 import * as ActionTypes from './constants';
 
 import {
-  getColumnData,
-  getColumnDataReceived,
-  getColumnDataError,
+  getColumns,
+  getColumnsReceived,
+  getColumnsError,
 } from '../actions/columns';
 
 describe('Columns Actions', () => {
-  describe('getColumnData', () => {
-    const fixture = 'columnId';
+  describe('getColumns', () => {
+    const fixture = 'projectId';
     it('should return the correct type', () => {
       const expectedResult = {
-        type: ActionTypes.GET_COLUMN_DATA,
-        columnId: fixture,
+        type: ActionTypes.GET_COLUMNS,
+        projectId: fixture,
       };
 
-      expect(getColumnData(fixture)).toEqual(expectedResult);
+      expect(getColumns(fixture)).toEqual(expectedResult);
     });
   });
 
-  describe('getColumnDataReceived', () => {
+  describe('getColumnsReceived', () => {
     it('should return the correct type', () => {
       const fixture = {
-        column: 'col'
+        columns: 'col'
       };
       const expectedResult = {
-        type: ActionTypes.GET_COLUMN_DATA_RECEIVED,
+        type: ActionTypes.GET_COLUMNS_RECEIVED,
         data: fixture,
       };
 
-      expect(getColumnDataReceived(fixture)).toEqual(expectedResult);
+      expect(getColumnsReceived(fixture)).toEqual(expectedResult);
     });
   });
 
-  describe('getColumnDataError', () => {
+  describe('getColumnsError', () => {
     it('should return the correct type', () => {
       const fixture = {
         error: 'err'
       };
       const expectedResult = {
-        type: ActionTypes.GET_COLUMN_DATA_ERROR,
+        type: ActionTypes.GET_COLUMNS_ERROR,
         error: fixture,
       };
 
-      expect(getColumnDataError(fixture)).toEqual(expectedResult);
+      expect(getColumnsError(fixture)).toEqual(expectedResult);
     });
   });
 });

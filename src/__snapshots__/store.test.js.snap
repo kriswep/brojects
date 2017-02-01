@@ -3,7 +3,12 @@ Object {
   "auth": Object {
     "authToken": "initialToken",
   },
-  "column": Object {
+  "columnData": Object {
+    "data": Object {},
+    "error": false,
+    "loading": false,
+  },
+  "columns": Object {
     "data": Object {},
     "error": false,
     "loading": false,
@@ -26,7 +31,12 @@ Object {
   "auth": Object {
     "authtoken": false,
   },
-  "column": Object {
+  "columnData": Object {
+    "data": Object {},
+    "error": false,
+    "loading": false,
+  },
+  "columns": Object {
     "data": Object {},
     "error": false,
     "loading": false,

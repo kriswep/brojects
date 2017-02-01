@@ -34,10 +34,80 @@ describe('Api middleware', () => {
     ).toEqual(action)
   });
 
+
   describe('GET_COLUMNS', () => {
     it('should format the response correctly on success', (done) => {
       const action = {
+        type: ActionTypes.GET_COLUMNS,
+        projectId: 'projectId',
+      }
+      const store = {
+        auth: {
+          authtoken: 'secret',
+        }
+      };
+      const request = jest.fn();
+      request.mockReturnValue(Promise.resolve({ columns: 'something' }));
+      const expectedReturn = {
+        type: ActionTypes.GET_COLUMNS_RECEIVED,
+        data: { columns: 'something' },
+      };
+
+
+      dispatchWithStoreOf(request, store, action, (returnValue) => {
+        expect(returnValue).toEqual(expectedReturn);
+        done();
+      });
+
+      expect(request.mock.calls[0][0].indexOf('api.github.com/projects/projectId/columns') > 0).toBe(true);
+
+
+    });
+
+    it('should handle error', (done) => {
+      const action = {
+        type: ActionTypes.GET_COLUMNS,
+        projectId: 'projectId',
+      }
+      const store = {
+        auth: {
+          authtoken: 'secret',
+        }
+      };
+      const request = jest.fn();
+      request.mockReturnValue(
+        new Promise((resolve, reject) => {
+          const err = {
+            response: {
+              statusText: 'whoops',
+            }
+          }
+          reject(err);
+        })
+      );
+      const expectedReturn = {
+        type: ActionTypes.GET_COLUMNS_ERROR,
+        error: 'whoops',
+      };
+
+      dispatchWithStoreOf(request, store, action, (returnValue) => {
+        expect(returnValue).toEqual(expectedReturn);
+        expect(returnValue.error).toBeDefined();
+        done();
+      });
+
+      expect(request.mock.calls[0][0].indexOf('api.github.com/projects/projectId/columns') > 0).toBe(true);
+
+    });
+
+  });
+
+
+  describe('GET_COLUMN_DATA', () => {
+    it('should format the response correctly on success', (done) => {
+      const action = {
         type: ActionTypes.GET_COLUMN_DATA,
+        columnId: 'columnId',
       }
       const store = {
         auth: {
@@ -63,7 +133,7 @@ describe('Api middleware', () => {
         done();
       });
 
-      expect(request.mock.calls[0][0].indexOf('api.github.com') > 0).toBe(true);
+      expect(request.mock.calls[0][0].indexOf('api.github.com/projects/columns/columnId') > 0).toBe(true);
 
 
     });
@@ -71,6 +141,7 @@ describe('Api middleware', () => {
     it('should handle error', (done) => {
       const action = {
         type: ActionTypes.GET_COLUMN_DATA,
+        columnId: 'columnId',
       }
       const store = {
         auth: {
@@ -99,7 +170,7 @@ describe('Api middleware', () => {
         done();
       });
 
-      expect(request.mock.calls[0][0].indexOf('api.github.com') > 0).toBe(true);
+      expect(request.mock.calls[0][0].indexOf('api.github.com/projects/columns/columnId') > 0).toBe(true);
 
     });
 
@@ -129,7 +200,7 @@ describe('Api middleware', () => {
         done();
       });
 
-      expect(request.mock.calls[0][0].indexOf('api.github.com') > 0).toBe(true);
+      expect(request.mock.calls[0][0].indexOf('api.github.com/user/repos') > 0).toBe(true);
 
 
     });
@@ -165,7 +236,7 @@ describe('Api middleware', () => {
         done();
       });
 
-      expect(request.mock.calls[0][0].indexOf('api.github.com') > 0).toBe(true);
+      expect(request.mock.calls[0][0].indexOf('api.github.com/user/repos') > 0).toBe(true);
 
     });
 
@@ -178,6 +249,7 @@ describe('Api middleware', () => {
     it('should format the response correctly on success', (done) => {
       const action = {
         type: ActionTypes.GET_PROJECTS,
+        repoFullName: 'repoFullName',
       }
       const store = {
         auth: {
@@ -197,7 +269,7 @@ describe('Api middleware', () => {
         done();
       });
 
-      expect(request.mock.calls[0][0].indexOf('api.github.com') > 0).toBe(true);
+      expect(request.mock.calls[0][0].indexOf('api.github.com/repos/repoFullName/projects') > 0).toBe(true);
 
 
     });
@@ -205,6 +277,7 @@ describe('Api middleware', () => {
     it('should handle error', (done) => {
       const action = {
         type: ActionTypes.GET_PROJECTS,
+        repoFullName: 'repoFullName',
       }
       const store = {
         auth: {
@@ -233,7 +306,7 @@ describe('Api middleware', () => {
         done();
       });
 
-      expect(request.mock.calls[0][0].indexOf('api.github.com') > 0).toBe(true);
+      expect(request.mock.calls[0][0].indexOf('api.github.com/repos/repoFullName/projects') > 0).toBe(true);
 
     });
 

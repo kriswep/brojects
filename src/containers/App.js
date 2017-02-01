@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 
 import Auth from '../components/Auth';
 import { setAuthtoken } from '../actions/auth';
-import { getColumnData } from '../actions/columns';
+import { getColumns } from '../actions/columns';
+import { getColumnData } from '../actions/columnData';
 import { getRepos } from '../actions/repos';
 import { getProjects } from '../actions/projects';
 import logo from './logo.svg';
@@ -35,7 +36,8 @@ export const mapStateToProps = (state) => {
   return {
     auth: state.auth,
     repos: state.repos,
-    column: state.column,
+    columns: state.columns,
+    columnData: state.columnData,
   }
 }
 
@@ -53,6 +55,7 @@ export const mapDispatchToProps = (dispatch) => {
       event.preventDefault();
       dispatch(getRepos());
       dispatch(getProjects('kriswep/modern-modular-javascript'));
+      dispatch(getColumns('324041'));
     }
   }
 }

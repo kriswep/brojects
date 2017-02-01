@@ -22,6 +22,12 @@ Array [
       "type": "brojects/action/GET_PROJECTS",
     },
   ],
+  Array [
+    Object {
+      "projectId": "324041",
+      "type": "brojects/action/GET_COLUMNS",
+    },
+  ],
 ]
 `;
 
@@ -41,7 +47,8 @@ Object {
   "auth": Object {
     "some": "value",
   },
-  "column": undefined,
+  "columnData": undefined,
+  "columns": undefined,
   "repos": undefined,
 }
 `;
