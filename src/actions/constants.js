@@ -16,3 +16,6 @@ export const GET_PROJECTS = 'brojects/action/GET_PROJECTS';
 export const GET_PROJECTS_RECEIVED = 'brojects/action/GET_PROJECTS_RECEIVED';
 export const GET_PROJECTS_ERROR = 'brojects/action/GET_PROJECTS_ERROR';
 
+export const GET_CARDS = 'brojects/action/GET_CARDS';
+export const GET_CARDS_RECEIVED = 'brojects/action/GET_CARDS_RECEIVED';
+export const GET_CARDS_ERROR = 'brojects/action/GET_CARDS_ERROR';
