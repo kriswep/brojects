@@ -95,6 +95,29 @@ const api = request => store => next => action => {
             error: error.response.statusText,
           }));
       }
+    case ActionTypes.GET_CARDS:
+      {
+        // This is an api request wo want to handle here
+        const { auth } = store.getState();
+        const columnId = action.columnId;
+
+        const options = {
+          headers: new Headers({
+            Accept: 'application/vnd.github.inertia-preview+json',
+            Authorization: `token ${auth.authtoken}`,
+          }),
+        };
+        // return promise for easier testing
+        return request(`https://api.github.com/projects/columns/${columnId}/cards`, options)
+          .then((json) => next({
+            type: ActionTypes.GET_CARDS_RECEIVED,
+            data: json,
+          }))
+          .catch((error) => next({
+            type: ActionTypes.GET_CARDS_ERROR,
+            error: error.response.statusText,
+          }));
+      }
     default:
       // return promise for easier testing
       return Promise.resolve('done doing nothing');

@@ -5,6 +5,7 @@ import reposReducer from './repos';
 import projectsReducer from './projects';
 import columnsReducer from './columns';
 import columnDataReducer from './columnData';
+import cardsReducer from './cards';
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   projects: projectsReducer,
   columns: columnsReducer,
   columnData: columnDataReducer,
+  cards: cardsReducer,
 });
 
 export default rootReducer;

@@ -3,6 +3,11 @@ Object {
   "auth": Object {
     "authToken": "initialToken",
   },
+  "cards": Object {
+    "data": Object {},
+    "error": false,
+    "loading": false,
+  },
   "columnData": Object {
     "data": Object {},
     "error": false,
@@ -30,6 +35,11 @@ exports[`configureStore the store should configure store with proper inital stat
 Object {
   "auth": Object {
     "authtoken": false,
+  },
+  "cards": Object {
+    "data": Object {},
+    "error": false,
+    "loading": false,
   },
   "columnData": Object {
     "data": Object {},

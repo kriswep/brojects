@@ -7,6 +7,7 @@ import { getColumns } from '../actions/columns';
 import { getColumnData } from '../actions/columnData';
 import { getRepos } from '../actions/repos';
 import { getProjects } from '../actions/projects';
+import { getCards } from '../actions/cards';
 import logo from './logo.svg';
 import './App.css';
 
@@ -38,6 +39,7 @@ export const mapStateToProps = (state) => {
     repos: state.repos,
     columns: state.columns,
     columnData: state.columnData,
+    cards: state.cards,
   }
 }
 
@@ -56,6 +58,7 @@ export const mapDispatchToProps = (dispatch) => {
       dispatch(getRepos());
       dispatch(getProjects('kriswep/modern-modular-javascript'));
       dispatch(getColumns('324041'));
+      dispatch(getCards('575404'));
     }
   }
 }

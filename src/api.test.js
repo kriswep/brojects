@@ -313,4 +313,72 @@ describe('Api middleware', () => {
   });
 
 
+  describe('GET_CARDS', () => {
+    it('should format the response correctly on success', (done) => {
+      const action = {
+        type: ActionTypes.GET_CARDS,
+        columnId: 'columnId',
+      }
+      const store = {
+        auth: {
+          authtoken: 'secret',
+        }
+      };
+      const request = jest.fn();
+      request.mockReturnValue(Promise.resolve({ card: 'something' })); 
+      const expectedReturn = {
+        type: ActionTypes.GET_CARDS_RECEIVED,
+        data: { card: 'something' },
+      };
+
+
+      dispatchWithStoreOf(request, store, action, (returnValue) => {
+        expect(returnValue).toEqual(expectedReturn);
+        done();
+      });
+
+      expect(request.mock.calls[0][0].indexOf('api.github.com/projects/columns/columnId/cards') > 0).toBe(true);
+
+
+    });
+
+    it('should handle error', (done) => {
+      const action = {
+        type: ActionTypes.GET_CARDS,
+        columnId: 'columnId',
+      }
+      const store = {
+        auth: {
+          authtoken: 'secret',
+        }
+      };
+      const request = jest.fn();
+      request.mockReturnValue(
+        new Promise((resolve, reject) => {
+          const err = {
+            response: {
+              statusText: 'whoops',
+            }
+          }
+          reject(err);
+        })
+      );
+      const expectedReturn = {
+        type: ActionTypes.GET_CARDS_ERROR,
+        error: 'whoops',
+      };
+
+      dispatchWithStoreOf(request, store, action, (returnValue) => {
+        expect(returnValue).toEqual(expectedReturn);
+        expect(returnValue.error).toBeDefined();
+        done();
+      });
+
+      expect(request.mock.calls[0][0].indexOf('api.github.com/projects/columns/columnId/cards') > 0).toBe(true);
+
+    });
+
+  });
+
+
 });

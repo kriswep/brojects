@@ -28,6 +28,12 @@ Array [
       "type": "brojects/action/GET_COLUMNS",
     },
   ],
+  Array [
+    Object {
+      "columnId": "575404",
+      "type": "brojects/action/GET_CARDS",
+    },
+  ],
 ]
 `;
 
@@ -47,6 +53,7 @@ Object {
   "auth": Object {
     "some": "value",
   },
+  "cards": undefined,
   "columnData": undefined,
   "columns": undefined,
   "repos": undefined,
