@@ -70,6 +70,19 @@ describe('App', () => {
       expect(dispatch.mock.calls).toMatchSnapshot();
     });
 
+    it('should handle onChangeRepo', () => {
+      const dispatch = jest.fn();
+      const dispatchedProps = mapDispatchToProps(dispatch);
+      const fixture = {
+        target: {
+          value: 'something'
+        }
+      };
+      dispatchedProps.onChangeRepo(fixture);
+      expect(dispatch.mock.calls.length).toBe(1);
+      expect(dispatch.mock.calls).toMatchSnapshot();
+    });
+
   });
 
 });

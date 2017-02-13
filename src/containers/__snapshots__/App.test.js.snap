@@ -9,6 +9,17 @@ Array [
 ]
 `;
 
+exports[`App mapDispatchToProps should handle onChangeRepo 1`] = `
+Array [
+  Array [
+    Object {
+      "repoId": "something",
+      "type": "brojects/action/SET_CURRENT_REPO",
+    },
+  ],
+]
+`;
+
 exports[`App mapDispatchToProps should handle onClick 1`] = `
 Array [
   Array [
