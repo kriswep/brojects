@@ -24,7 +24,8 @@ Object {
     "loading": false,
   },
   "repos": Object {
-    "data": Object {},
+    "currentRepo": false,
+    "data": Array [],
     "error": false,
     "loading": false,
   },
@@ -57,7 +58,8 @@ Object {
     "loading": false,
   },
   "repos": Object {
-    "data": Object {},
+    "currentRepo": false,
+    "data": Array [],
     "error": false,
     "loading": false,
   },

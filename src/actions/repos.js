@@ -11,3 +11,7 @@ export const getReposError = (error) => ({
   type: ActionTypes.GET_REPOS_ERROR,
   error,
 });
+export const setCurrentRepo = (repoId) => ({
+  type: ActionTypes.SET_CURRENT_REPO,
+  repoId,
+});

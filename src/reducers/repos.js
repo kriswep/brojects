@@ -3,7 +3,8 @@ import * as ActionTypes from '../actions/constants';
 export const initialReposState = {
   loading: false,
   error: false,
-  data: {},
+  data: [],
+  currentRepo: false,
 };
 
 const reposReducer = (state = initialReposState, action) => {
@@ -26,6 +27,11 @@ const reposReducer = (state = initialReposState, action) => {
         ...state,
         loading: false,
         error: action.error,
+      };
+    case ActionTypes.SET_CURRENT_REPO:
+      return {
+        ...state,
+        currentRepo: action.repoId,
       };
     default:
       return state;

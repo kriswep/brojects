@@ -4,6 +4,7 @@ import {
   getRepos,
   getReposReceived,
   getReposError,
+  setCurrentRepo,
 } from '../actions/repos';
 describe('Repos Actions', () => {
   describe('getRepos', () => {
@@ -41,6 +42,18 @@ describe('Repos Actions', () => {
       };
 
       expect(getReposError(fixture)).toEqual(expectedResult);
+    });
+  });
+
+  describe('setCurrentRepo', () => {
+    it('should return the correct type', () => {
+      const fixture = 'repoId';
+      const expectedResult = {
+        type: ActionTypes.SET_CURRENT_REPO,
+        repoId: fixture,
+      };
+
+      expect(setCurrentRepo(fixture)).toEqual(expectedResult);
     });
   });
 });

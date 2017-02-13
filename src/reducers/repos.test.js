@@ -16,7 +16,8 @@ describe('Repos Reducers', () => {
       const expectedState = {
         loading: true,
         error: false,
-        data: {},
+        data: [],
+        currentRepo: false,
       }
       expect(
         reposReducer(undefined, {
@@ -30,11 +31,13 @@ describe('Repos Reducers', () => {
         loading: false,
         error: false,
         data: fixture,
+        currentRepo: false,
       };
       const expectedState = {
         loading: true,
         error: false,
         data: fixture,
+        currentRepo: false,
       }
       expect(
         reposReducer(prevState, {
@@ -48,6 +51,7 @@ describe('Repos Reducers', () => {
         loading: false,
         error: false,
         data: fixture,
+        currentRepo: false,
       }
       expect(
         reposReducer(undefined, {
@@ -64,11 +68,13 @@ describe('Repos Reducers', () => {
         data: {
           old: 'col',
         },
+        currentRepo: false,
       };
       const expectedState = {
         loading: false,
         error: false,
         data: fixture,
+        currentRepo: false,
       }
       expect(
         reposReducer(prevState, {
@@ -82,7 +88,8 @@ describe('Repos Reducers', () => {
       const expectedState = {
         loading: false,
         error: fixture,
-        data: {},
+        data: [],
+        currentRepo: false,
       }
       expect(
         reposReducer(undefined, {
@@ -98,17 +105,55 @@ describe('Repos Reducers', () => {
         error: {
           old: 'err',
         },
-        data: {},
+        data: [],
+        currentRepo: false,
       };
       const expectedState = {
         loading: false,
         error: fixture,
-        data: {},
+        data: [],
+        currentRepo: false,
       }
       expect(
         reposReducer(prevState, {
           type: ActionTypes.GET_REPOS_ERROR,
           error: fixture,
+        })
+      ).toEqual(expectedState);
+    });
+
+    it('should handle the SET_CURRENT_REPO action', () => {
+      const expectedState = {
+        loading: false,
+        error: false,
+        data: [],
+        currentRepo: fixture,
+      }
+      expect(
+        reposReducer(undefined, {
+          type: ActionTypes.SET_CURRENT_REPO,
+          repoId: fixture,
+        })
+      ).toEqual(expectedState);
+    });
+
+    it('should handle the SET_CURRENT_REPO action with prev state', () => {
+      const prevState = {
+        loading: false,
+        error: {},
+        data: [],
+        currentRepo: false,
+      };
+      const expectedState = {
+        loading: false,
+        error: {},
+        data: [],
+        currentRepo: fixture,
+      }
+      expect(
+        reposReducer(prevState, {
+          type: ActionTypes.SET_CURRENT_REPO,
+          repoId: fixture,
         })
       ).toEqual(expectedState);
     });

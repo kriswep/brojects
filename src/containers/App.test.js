@@ -21,7 +21,10 @@ describe('App', () => {
       const fixture = {
         auth: {
           some: 'value',
-        }
+        },
+        repos: {
+          data: ['value'],
+        },
       }
       expect(mapStateToProps(fixture)).toMatchSnapshot();
     });

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
 import Auth from '../components/Auth';
+import Repo from '../components/Repo';
+
+import { setCurrentRepo } from '../actions/repos';
 import { setAuthtoken } from '../actions/auth';
 import { getColumns } from '../actions/columns';
 import { getColumnData } from '../actions/columnData';
@@ -28,6 +31,10 @@ export class App extends Component {
           onSubmit={this.props.onSubmit}
           onClick={this.props.onClick}
           authToken={this.props.authToken}/>
+        <Repo 
+          repos={this.props.repos}
+          currentRepo={this.props.currentRepo}
+          onChange={this.props.onChangeRepo}/>
       </section>
     );
   }
@@ -36,7 +43,8 @@ export class App extends Component {
 export const mapStateToProps = (state) => {
   return {
     auth: state.auth,
-    repos: state.repos,
+    repos: state.repos.data,
+    currentRepo: state.repos.currentRepo,
     columns: state.columns,
     columnData: state.columnData,
     cards: state.cards,
@@ -59,7 +67,10 @@ export const mapDispatchToProps = (dispatch) => {
       dispatch(getProjects('kriswep/modern-modular-javascript'));
       dispatch(getColumns('324041'));
       dispatch(getCards('575404'));
-    }
+    },
+    onChangeRepo: (event) => {
+      dispatch(setCurrentRepo(event.target.value));
+    },
   }
 }
 

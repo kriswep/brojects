@@ -1,0 +1,16 @@
+exports[`Repo renders as expected 1`] = `
+<section>
+  <select
+    onChange={undefined}
+    value="repoID2">
+    <option
+      value="repoID1">
+      repo/1
+    </option>
+    <option
+      value="repoID2">
+      repo/2
+    </option>
+  </select>
+</section>
+`;
