@@ -1,9 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ReactTestRenderer from 'react-test-renderer';
-// import { shallow } from 'enzyme';
+// import ReactTestRenderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
+
+import 'react-mdl/extra/material.css';
+import 'react-mdl/extra/css/material.indigo-pink.min.css';
+import 'react-mdl/extra/material.js';
 
 import Auth from './Auth';
+
+const noop = () => { };
 
 describe('Auth', () => {
 
@@ -13,10 +20,17 @@ describe('Auth', () => {
   });
 
   it('renders as expected', () => {
-    const renderer = ReactTestRenderer.create(<Auth />);
-    // const auth = shallowRenderer.render(<Auth />);
+    // const renderer = ReactTestRenderer.create(<Auth />);
+    const wrapper = shallow(<Auth
+      onChange={noop}
+      onSubmit={noop}
+      onClick={noop}
+      authtoken={'authtoken'}
+    />);
+    // expect(wrapper.find('header').hasClass('App-header')).toBe(true);
 
-    expect(renderer.toJSON()).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
+    // expect(renderer.toJSON()).toMatchSnapshot();
   });
 
   // it('renders a Header', () => {

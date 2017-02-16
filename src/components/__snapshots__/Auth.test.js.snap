@@ -1,19 +1,19 @@
 exports[`Auth renders as expected 1`] = `
 <section>
   <form
-    onSubmit={undefined}>
-    <label
-      htmlFor="authtoken">
-      Please provide your auth token
-    </label>
-    <input
+    onSubmit={[Function]}>
+    <Textfield
       id="authtoken"
-      onChange={undefined}
-      value={undefined} />
+      label="Please provide your auth token"
+      onChange={[Function]}
+      value="authtoken" />
   </form>
-  <button
-    onClick={undefined}>
+  <Button
+    colored={true}
+    onClick={[Function]}
+    raised={true}
+    ripple={true}>
     Get Stuff
-  </button>
+  </Button>
 </section>
 `;

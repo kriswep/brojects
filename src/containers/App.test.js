@@ -1,6 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
+
+import 'react-mdl/extra/material.css';
+import 'react-mdl/extra/css/material.indigo-pink.min.css';
+import 'react-mdl/extra/material.js';
+
 import { App, mapStateToProps, mapDispatchToProps } from './App';
 
 describe('App', () => {

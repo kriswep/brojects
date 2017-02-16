@@ -1,19 +1,20 @@
-import React from 'react'
+import React from 'react';
+import { Button, Textfield } from 'react-mdl';
 
 const Auth = ({ onSubmit, onChange, onClick, authtoken }) => (
   <section>
     <form onSubmit={onSubmit}>
-      <label htmlFor="authtoken">Please provide your auth token</label>
-      <input
+      <Textfield
+        label="Please provide your auth token"
         id="authtoken"
         onChange={onChange}
         value={authtoken}
         />
     </form>
-    <button
+    <Button raised colored ripple
       onClick={onClick}
       >Get Stuff
-    </button>
+    </Button>
   </section>
 )
 
