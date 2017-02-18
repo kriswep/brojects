@@ -11,9 +11,15 @@ import './index.css';
 
 let store = configureStore();
 
-export default ReactDOM.render(
-  <Provider store={store}>
+const Index = <Provider store={store}>
     <App />
-  </Provider>,
+  </Provider>
+
+export const IndexComponent = () => (
+  Index 
+);
+
+export default ReactDOM.render(
+  Index,
   document.getElementById('root') || document.createElement('div')
 );

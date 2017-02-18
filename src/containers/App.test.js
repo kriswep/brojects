@@ -1,6 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
+
+// import { Layout, Header, HeaderRow, Drawer, Navigation, Content, Footer, FooterSection } from 'react-mdl';
 
 import 'react-mdl/extra/material.css';
 import 'react-mdl/extra/css/material.indigo-pink.min.css';
@@ -10,14 +13,19 @@ import { App, mapStateToProps, mapDispatchToProps } from './App';
 
 describe('App', () => {
   describe('rendering', () => {
-    it('renders without crashing', () => {
-      const div = document.createElement('div');
-      ReactDOM.render(<App />, div);
+    it('renders without crashing', () => {      
+      const wrapper = shallow(<App />);
+
+    expect(toJson(wrapper)).toMatchSnapshot();
     });
 
-    it('renders a Header', () => {
+    it('renders a Layout with Header, Drawer, Content and Footer', () => {
       const wrapper = shallow(<App />);
-      expect(wrapper.find('header').hasClass('App-header')).toBe(true);
+      expect(wrapper.find('Layout').length).toBe(1);
+      expect(wrapper.find('Header').length).toBe(1);
+      expect(wrapper.find('Drawer').length).toBe(1);
+      expect(wrapper.find('Content').length).toBe(1);
+      expect(wrapper.find('Footer').length).toBe(1);
     });
   });
 

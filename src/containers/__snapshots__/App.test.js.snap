@@ -73,3 +73,44 @@ Object {
   ],
 }
 `;
+
+exports[`App rendering renders without crashing 1`] = `
+<section
+  className="App">
+  <Layout
+    fixedHeader={true}>
+    <Header
+      waterfall={true}>
+      <HeaderRow
+        title="<BROJECTS>" />
+      <p>
+        Better Github projects
+      </p>
+    </Header>
+    <Drawer
+      title="<BROJECTS>">
+      <Navigation>
+        <a
+          href="">
+          TODO
+        </a>
+        <a
+          href="">
+          TODO
+        </a>
+      </Navigation>
+    </Drawer>
+    <Content>
+      <Auth />
+      <Repo />
+    </Content>
+    <Footer
+      size="mini">
+      <Section
+        logo="<BROJECTS>"
+        size="mega"
+        type="left" />
+    </Footer>
+  </Layout>
+</section>
+`;
