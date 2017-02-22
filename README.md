@@ -15,7 +15,7 @@ That means, you will always be able to switch back to normal Github Pages.
 
 **GOALS:**
 
- - [ ] As realtime as possible (Could actuably be hard, since API won't push)
+ - [ ] As realtime as possible (Could actually be hard, since API won't push)
  - [ ] Option to create cards as issues directly
  - [ ] Improved ability to change card/issue texts from project page
  - [ ] Add/Remove labels based on column
@@ -28,3 +28,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 You can find the most recent version of their development guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
 It uses Redux for state management.
+
+## LICENSE
+
+[MIT-LICENSE](./blob/master/LICENSE)
