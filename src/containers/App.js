@@ -27,22 +27,23 @@ export class App extends Component {
             <HeaderRow title={title} />
             <p>Better Github projects</p>
           </Header>
-          <Drawer title={title} >
+          <Repo
+              repos={this.props.repos}
+              currentRepo={this.props.currentRepo}
+              onChangeRepo={this.props.onChangeRepo} />
+          {/*<Drawer title={title} >
             <Navigation>
               <a href="">TODO</a>
               <a href="">TODO</a>
             </Navigation>
-          </Drawer>
+          </Drawer>*/}
           <Content>
             <Auth
               onChange={this.props.onChange}
               onSubmit={this.props.onSubmit}
               onClick={this.props.onClick}
               authToken={this.props.authToken} />
-            <Repo
-              repos={this.props.repos}
-              currentRepo={this.props.currentRepo}
-              onChange={this.props.onChangeRepo} />
+            
           </Content>
         </Layout>
 
@@ -80,7 +81,8 @@ export const mapDispatchToProps = (dispatch) => {
       dispatch(getCards('575404'));
     },
     onChangeRepo: (event) => {
-      dispatch(setCurrentRepo(event.target.value));
+      event.preventDefault();
+      dispatch(setCurrentRepo(event.target.id));
     },
   }
 }

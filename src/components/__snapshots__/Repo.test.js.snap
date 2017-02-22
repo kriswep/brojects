@@ -1,16 +1,22 @@
 exports[`Repo renders as expected 1`] = `
-<section>
-  <select
-    onChange={undefined}
-    value="repoID2">
-    <option
-      value="repoID1">
+<div
+  className="mdl-layout__drawer">
+  <nav
+    className="mdl-navigation">
+    <a
+      className="mdl-navigation__link"
+      href="#"
+      id="repoID1"
+      onClick={undefined}>
       repo/1
-    </option>
-    <option
-      value="repoID2">
+    </a>
+    <a
+      className="mdl-navigation__link"
+      href="#"
+      id="repoID2"
+      onClick={undefined}>
       repo/2
-    </option>
-  </select>
-</section>
+    </a>
+  </nav>
+</div>
 `;

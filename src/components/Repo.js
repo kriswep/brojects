@@ -1,18 +1,16 @@
-import React from 'react'
+import React from 'react';
+import { Drawer, Navigation } from 'react-mdl';
 
-const Repo = ({ repos = [], currentRepo, onChange }) => (
-  <section>
-    <select 
-        value={currentRepo}        
-        onChange={onChange}
-        >
-      {repos.map((repo) => {
-        return (
-          <option value={repo.id} key={repo.id}>{repo.full_name}</option>
-        );
-      })}
-    </select>
-  </section>
+const Repo = ({ repos = [], title, currentRepo, onChangeRepo }) => (
+    <Drawer title={title} >
+      <Navigation>
+        {repos.map((repo) => {
+          return (
+            <a href="#" id={repo.id} key={repo.id} onClick={onChangeRepo}>{repo.full_name}</a>
+          );
+        })}
+      </Navigation>
+    </Drawer>
 )
 
 export default Repo;

@@ -17,11 +17,11 @@ describe('App', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
     });
 
-    it('renders a Layout with Header, Drawer, Content and Footer', () => {
+    it('renders a Layout with Header, Repo as Drawer, Content and Footer', () => {
       const wrapper = shallow(<App />);
       expect(wrapper.find('Layout').length).toBe(1);
       expect(wrapper.find('Header').length).toBe(1);
-      expect(wrapper.find('Drawer').length).toBe(1);
+      expect(wrapper.find('Repo').length).toBe(1);
       expect(wrapper.find('Content').length).toBe(1);
     });
   });
@@ -82,13 +82,16 @@ describe('App', () => {
 
     it('should handle onChangeRepo', () => {
       const dispatch = jest.fn();
+      const preventDefault = jest.fn();
       const dispatchedProps = mapDispatchToProps(dispatch);
       const fixture = {
+        preventDefault,
         target: {
-          value: 'something'
+          id: 'repoId'
         }
       };
       dispatchedProps.onChangeRepo(fixture);
+      expect(preventDefault.mock.calls.length).toBe(1);
       expect(dispatch.mock.calls.length).toBe(1);
       expect(dispatch.mock.calls).toMatchSnapshot();
     });

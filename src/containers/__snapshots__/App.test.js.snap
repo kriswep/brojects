@@ -13,7 +13,7 @@ exports[`App mapDispatchToProps should handle onChangeRepo 1`] = `
 Array [
   Array [
     Object {
-      "repoId": "something",
+      "repoId": "repoId",
       "type": "brojects/action/SET_CURRENT_REPO",
     },
   ],
@@ -87,22 +87,9 @@ exports[`App rendering renders without crashing 1`] = `
         Better Github projects
       </p>
     </Header>
-    <Drawer
-      title="<BROJECTS>">
-      <Navigation>
-        <a
-          href="">
-          TODO
-        </a>
-        <a
-          href="">
-          TODO
-        </a>
-      </Navigation>
-    </Drawer>
+    <Repo />
     <Content>
       <Auth />
-      <Repo />
     </Content>
   </Layout>
 </section>
