@@ -1,10 +1,10 @@
-[![unstable](http://badges.github.io/stability-badges/dist/unstable.svg)](http://github.com/badges/stability-badges)
+[![unstable](http://badges.github.io/stability-badges/dist/unstable.svg)](https://github.com/badges/stability-badges#stability-2---unstable)
 
 # &lt;brojects&gt;
 
 Better Github projects.
 
-Interactive and flexible project management on top of Github projects.
+Interact<sve and flexible project management on top of Github projects.
 
 ## Outline
 
