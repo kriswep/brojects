@@ -31,4 +31,4 @@ It uses Redux for state management.
 
 ## LICENSE
 
-[MIT-LICENSE](./blob/master/LICENSE)
+[MIT-LICENSE](LICENSE)
