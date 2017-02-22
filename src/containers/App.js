@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
-import { Layout, Header, HeaderRow, Drawer, Navigation, Content, Footer, FooterSection } from 'react-mdl';
+import { Layout, Header, HeaderRow, Drawer, Navigation, Content } from 'react-mdl';
 
 import Auth from '../components/Auth';
 import Repo from '../components/Repo';
@@ -44,9 +44,6 @@ export class App extends Component {
               currentRepo={this.props.currentRepo}
               onChange={this.props.onChangeRepo} />
           </Content>
-          <Footer size="mini">
-            <FooterSection type="left" logo={title} />
-          </Footer>
         </Layout>
 
       </section>

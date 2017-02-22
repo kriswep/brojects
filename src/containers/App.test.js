@@ -3,8 +3,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
-// import { Layout, Header, HeaderRow, Drawer, Navigation, Content, Footer, FooterSection } from 'react-mdl';
-
 import 'react-mdl/extra/material.css';
 import 'react-mdl/extra/css/material.indigo-pink.min.css';
 import 'react-mdl/extra/material.js';
@@ -25,7 +23,6 @@ describe('App', () => {
       expect(wrapper.find('Header').length).toBe(1);
       expect(wrapper.find('Drawer').length).toBe(1);
       expect(wrapper.find('Content').length).toBe(1);
-      expect(wrapper.find('Footer').length).toBe(1);
     });
   });
 
