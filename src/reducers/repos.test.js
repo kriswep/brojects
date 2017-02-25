@@ -122,38 +122,44 @@ describe('Repos Reducers', () => {
       ).toEqual(expectedState);
     });
 
-    it('should handle the SET_CURRENT_REPO action', () => {
+    it('should not SET_CURRENT_REPO, when repo is not loaded', () => {
+      const repoId = 1234;
       const expectedState = {
         loading: false,
-        error: false,
+        error: 'invalid repo',
         data: [],
-        currentRepo: fixture,
+        currentRepo: false,
       }
       expect(
         reposReducer(undefined, {
           type: ActionTypes.SET_CURRENT_REPO,
-          repoId: fixture,
+          repoId,
         })
       ).toEqual(expectedState);
     });
 
     it('should handle the SET_CURRENT_REPO action with prev state', () => {
+      const repo = {
+        id: 1234,
+        some: 'repo',
+        data: {},
+      }
       const prevState = {
         loading: false,
         error: {},
-        data: [],
+        data: [repo],
         currentRepo: false,
       };
       const expectedState = {
         loading: false,
-        error: {},
-        data: [],
-        currentRepo: fixture,
+        error: false,
+        data: [repo],
+        currentRepo: repo,
       }
       expect(
         reposReducer(prevState, {
           type: ActionTypes.SET_CURRENT_REPO,
-          repoId: fixture,
+          repoId: repo.id,
         })
       ).toEqual(expectedState);
     });

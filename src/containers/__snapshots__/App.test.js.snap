@@ -13,7 +13,7 @@ exports[`App mapDispatchToProps should handle onChangeRepo 1`] = `
 Array [
   Array [
     Object {
-      "repoId": "repoId",
+      "repoId": 1234,
       "type": "brojects/action/SET_CURRENT_REPO",
     },
   ],

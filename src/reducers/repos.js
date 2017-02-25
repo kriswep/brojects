@@ -29,9 +29,14 @@ const reposReducer = (state = initialReposState, action) => {
         error: action.error,
       };
     case ActionTypes.SET_CURRENT_REPO:
+      const currentRepo = state.data.reduce((prev, curr) => {
+        return curr.id === action.repoId ? curr : prev
+      }, false);
+      const error = currentRepo ? false: 'invalid repo';
       return {
         ...state,
-        currentRepo: action.repoId,
+        error,
+        currentRepo,
       };
     default:
       return state;

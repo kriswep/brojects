@@ -87,7 +87,7 @@ describe('App', () => {
       const fixture = {
         preventDefault,
         target: {
-          id: 'repoId'
+          id: 1234
         }
       };
       dispatchedProps.onChangeRepo(fixture);

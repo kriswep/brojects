@@ -47,10 +47,19 @@ describe('Repos Actions', () => {
 
   describe('setCurrentRepo', () => {
     it('should return the correct type', () => {
-      const fixture = 'repoId';
+      const fixture = '123';
       const expectedResult = {
         type: ActionTypes.SET_CURRENT_REPO,
-        repoId: fixture,
+        repoId: Number(fixture),
+      };
+
+      expect(setCurrentRepo(fixture)).toEqual(expectedResult);
+    });
+    it('should accept numbers only', () => {
+      const fixture = 'string';
+      const expectedResult = {
+        type: ActionTypes.SET_CURRENT_REPO,
+        repoId: Number(fixture),
       };
 
       expect(setCurrentRepo(fixture)).toEqual(expectedResult);
