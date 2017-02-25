@@ -147,13 +147,19 @@ describe('Repos Reducers', () => {
       const prevState = {
         loading: false,
         error: {},
-        data: [repo],
+        data: [{
+            id: 1111,
+          },
+          repo,
+          {
+            id: 3333,
+          }],
         currentRepo: false,
       };
       const expectedState = {
         loading: false,
         error: false,
-        data: [repo],
+        data: prevState.data,
         currentRepo: repo,
       }
       expect(

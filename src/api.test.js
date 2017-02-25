@@ -246,7 +246,7 @@ describe('Api middleware', () => {
 
 
   describe('GET_PROJECTS', () => {
-    it('should format the response correctly on success', (done) => {
+    it('should format the response correctly on success with repo specified in action', (done) => {
       const action = {
         type: ActionTypes.GET_PROJECTS,
         repoFullName: 'repoFullName',
@@ -263,6 +263,37 @@ describe('Api middleware', () => {
         data: { project: 'something' },
       };
 
+      dispatchWithStoreOf(request, store, action, (returnValue) => {
+        expect(returnValue).toEqual(expectedReturn);
+        done();
+      });
+
+      expect(request.mock.calls[0][0].indexOf('api.github.com/repos/repoFullName/projects') > 0).toBe(true);
+
+
+    });
+
+    it('should format the response correctly on success with repo specified in store', (done) => {
+      const action = {
+        type: ActionTypes.GET_PROJECTS,
+        // repoFullName: 'repoFullName',
+      }
+      const store = {
+        auth: {
+          authtoken: 'secret',
+        },
+        repos: {
+          currentRepo: {
+            full_name: 'repoFullName',
+          },
+        }
+      };
+      const request = jest.fn();
+      request.mockReturnValue(Promise.resolve({ project: 'something' }));
+      const expectedReturn = {
+        type: ActionTypes.GET_PROJECTS_RECEIVED,
+        data: { project: 'something' },
+      };
 
       dispatchWithStoreOf(request, store, action, (returnValue) => {
         expect(returnValue).toEqual(expectedReturn);
@@ -325,7 +356,7 @@ describe('Api middleware', () => {
         }
       };
       const request = jest.fn();
-      request.mockReturnValue(Promise.resolve({ card: 'something' })); 
+      request.mockReturnValue(Promise.resolve({ card: 'something' }));
       const expectedReturn = {
         type: ActionTypes.GET_CARDS_RECEIVED,
         data: { card: 'something' },
