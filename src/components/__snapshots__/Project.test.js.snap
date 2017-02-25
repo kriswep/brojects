@@ -1,0 +1,21 @@
+exports[`Project renders as expected 1`] = `
+<HeaderTabs
+  activeTab={0}
+  ripple={true}>
+  <Tab
+    id="projectID1"
+    style={Object {}}>
+    project/1
+  </Tab>
+  <Tab
+    id="repoID2"
+    style={Object {}}>
+    project/2
+  </Tab>
+</HeaderTabs>
+`;
+
+exports[`Project renders without crashing 1`] = `
+<HeaderTabs
+  ripple={true} />
+`;

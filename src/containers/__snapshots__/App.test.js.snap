@@ -73,7 +73,11 @@ Object {
   "cards": undefined,
   "columnData": undefined,
   "columns": undefined,
+  "currentProject": 0,
   "currentRepo": undefined,
+  "projects": Array [
+    "value",
+  ],
   "repos": Array [
     "value",
   ],
@@ -89,11 +93,10 @@ exports[`App rendering renders without crashing 1`] = `
       waterfall={true}>
       <HeaderRow
         title="<BROJECTS>" />
-      <p>
-        Better Github projects
-      </p>
+      <Project />
     </Header>
-    <Repo />
+    <Repo
+      title="<BROJECTS>" />
     <Content>
       <Auth />
     </Content>

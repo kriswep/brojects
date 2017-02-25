@@ -16,7 +16,8 @@ describe('Projects Reducers', () => {
       const expectedState = {
         loading: true,
         error: false,
-        data: {},
+        data: [],
+        currentRepo: false,
       }
       expect(
         projectsReducer(undefined, {
@@ -30,11 +31,13 @@ describe('Projects Reducers', () => {
         loading: false,
         error: false,
         data: fixture,
+        currentRepo: false,
       };
       const expectedState = {
         loading: true,
         error: false,
         data: fixture,
+        currentRepo: false,
       }
       expect(
         projectsReducer(prevState, {
@@ -48,6 +51,7 @@ describe('Projects Reducers', () => {
         loading: false,
         error: false,
         data: fixture,
+        currentRepo: false,
       }
       expect(
         projectsReducer(undefined, {
@@ -64,11 +68,13 @@ describe('Projects Reducers', () => {
         data: {
           old: 'project',
         },
+        currentRepo: false,
       };
       const expectedState = {
         loading: false,
         error: false,
         data: fixture,
+        currentRepo: false,
       }
       expect(
         projectsReducer(prevState, {
@@ -82,7 +88,8 @@ describe('Projects Reducers', () => {
       const expectedState = {
         loading: false,
         error: fixture,
-        data: {},
+        data: [],
+        currentRepo: false,
       }
       expect(
         projectsReducer(undefined, {
@@ -98,12 +105,14 @@ describe('Projects Reducers', () => {
         error: {
           old: 'err',
         },
-        data: {},
+        data: [],
+        currentRepo: false,
       };
       const expectedState = {
         loading: false,
         error: fixture,
-        data: {},
+        data: [],
+        currentRepo: false,
       }
       expect(
         projectsReducer(prevState, {

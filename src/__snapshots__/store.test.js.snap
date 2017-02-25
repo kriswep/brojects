@@ -19,7 +19,8 @@ Object {
     "loading": false,
   },
   "projects": Object {
-    "data": Object {},
+    "currentRepo": false,
+    "data": Array [],
     "error": false,
     "loading": false,
   },
@@ -53,7 +54,8 @@ Object {
     "loading": false,
   },
   "projects": Object {
-    "data": Object {},
+    "currentRepo": false,
+    "data": Array [],
     "error": false,
     "loading": false,
   },

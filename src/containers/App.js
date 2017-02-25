@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 
-import { Layout, Header, HeaderRow, Drawer, Navigation, Content } from 'react-mdl';
+import { Layout, Header, HeaderRow, Content } from 'react-mdl';
 
 import Auth from '../components/Auth';
 import Repo from '../components/Repo';
+import Project from '../components/Project';
 
 import { setCurrentRepo } from '../actions/repos';
 import { setAuthtoken } from '../actions/auth';
@@ -25,11 +26,14 @@ export class App extends Component {
         <Layout fixedHeader>
           <Header waterfall>
             <HeaderRow title={title} />
-            <p>Better Github projects</p>
+            <Project 
+              projects={this.props.projects}
+              currentProject={this.props.currentProject}
+              onChangeProject={this.props.onChangeProject} />
           </Header>
           <Repo
               repos={this.props.repos}
-              currentRepo={this.props.currentRepo}
+              title={title}
               onChangeRepo={this.props.onChangeRepo} />
           {/*<Drawer title={title} >
             <Navigation>
@@ -51,12 +55,14 @@ export class App extends Component {
     );
   }
 };
-
+let currentProject = 0;
 export const mapStateToProps = (state) => {
   return {
     auth: state.auth,
     repos: state.repos.data,
     currentRepo: state.repos.currentRepo,
+    projects: state.projects.data,
+    currentProject, // state.repos.currentProject,
     columns: state.columns,
     columnData: state.columnData,
     cards: state.cards,
@@ -86,6 +92,10 @@ export const mapDispatchToProps = (dispatch) => {
       dispatch(setCurrentRepo(event.target.id));
       dispatch(getProjects());
     },
+    onChangeProject: (event) => {
+      console.log(event);
+      currentProject = event;
+    }
   }
 }
 

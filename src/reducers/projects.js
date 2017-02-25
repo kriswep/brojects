@@ -3,7 +3,8 @@ import * as ActionTypes from '../actions/constants';
 export const initialReposState = {
   loading: false,
   error: false,
-  data: {},
+  data: [],
+  currentRepo: false,
 };
 
 const projectsReducer = (state = initialReposState, action) => {

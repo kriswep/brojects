@@ -35,6 +35,9 @@ describe('App', () => {
         repos: {
           data: ['value'],
         },
+        projects: {
+          data: ['value'],
+        },
       }
       expect(mapStateToProps(fixture)).toMatchSnapshot();
     });
@@ -94,6 +97,19 @@ describe('App', () => {
       expect(preventDefault.mock.calls.length).toBe(1);
       expect(dispatch.mock.calls.length).toBe(2);
       expect(dispatch.mock.calls).toMatchSnapshot();
+    });
+
+
+    it('should handle onChangeProject', () => {
+      // TODO
+      const dispatch = jest.fn();
+      // const preventDefault = jest.fn();
+      const dispatchedProps = mapDispatchToProps(dispatch);
+      const fixture = 0;
+      dispatchedProps.onChangeProject(fixture);
+      // expect(preventDefault.mock.calls.length).toBe(1);
+      // expect(dispatch.mock.calls.length).toBe(2);
+      // expect(dispatch.mock.calls).toMatchSnapshot();
     });
 
   });
