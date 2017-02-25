@@ -17,6 +17,12 @@ Array [
       "type": "brojects/action/SET_CURRENT_REPO",
     },
   ],
+  Array [
+    Object {
+      "repoFullName": undefined,
+      "type": "brojects/action/GET_PROJECTS",
+    },
+  ],
 ]
 `;
 
@@ -29,12 +35,6 @@ Array [
   ],
   Array [
     Object {
-      "repoFullName": "kriswep/modern-modular-javascript",
-      "type": "brojects/action/GET_PROJECTS",
-    },
-  ],
-  Array [
-    Object {
       "projectId": "324041",
       "type": "brojects/action/GET_COLUMNS",
     },
@@ -43,6 +43,12 @@ Array [
     Object {
       "columnId": "575404",
       "type": "brojects/action/GET_CARDS",
+    },
+  ],
+  Array [
+    Object {
+      "columnId": "575404",
+      "type": "brojects/action/GET_COLUMN_DATA",
     },
   ],
 ]

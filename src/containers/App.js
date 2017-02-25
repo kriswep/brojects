@@ -76,13 +76,15 @@ export const mapDispatchToProps = (dispatch) => {
     onClick: (event) => {
       event.preventDefault();
       dispatch(getRepos());
-      dispatch(getProjects('kriswep/modern-modular-javascript'));
+      // dispatch(getProjects('kriswep/modern-modular-javascript'));
       dispatch(getColumns('324041'));
       dispatch(getCards('575404'));
+      dispatch(getColumnData('575404'));
     },
     onChangeRepo: (event) => {
       event.preventDefault();
       dispatch(setCurrentRepo(event.target.id));
+      dispatch(getProjects());
     },
   }
 }

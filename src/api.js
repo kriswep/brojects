@@ -75,8 +75,8 @@ const api = request => store => next => action => {
     case ActionTypes.GET_PROJECTS:
       {
         // This is an api request wo want to handle here
-        const { auth } = store.getState();
-        const repoFullName = action.repoFullName;
+        const { auth, repos } = store.getState();
+        const repoFullName = action.repoFullName || repos.currentRepo.full_name;
 
         const options = {
           headers: new Headers({
