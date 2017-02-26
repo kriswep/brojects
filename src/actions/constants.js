@@ -16,6 +16,7 @@ export const SET_CURRENT_REPO = 'brojects/action/SET_CURRENT_REPO';
 export const GET_PROJECTS = 'brojects/action/GET_PROJECTS';
 export const GET_PROJECTS_RECEIVED = 'brojects/action/GET_PROJECTS_RECEIVED';
 export const GET_PROJECTS_ERROR = 'brojects/action/GET_PROJECTS_ERROR';
+export const SET_CURRENT_PROJECT = 'brojects/action/SET_CURRENT_PROJECT';
 
 export const GET_CARDS = 'brojects/action/GET_CARDS';
 export const GET_CARDS_RECEIVED = 'brojects/action/GET_CARDS_RECEIVED';

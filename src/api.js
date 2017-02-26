@@ -8,8 +8,8 @@ const api = request => store => next => action => {
     case ActionTypes.GET_COLUMNS:
       {
         // This is an api request wo want to handle here
-        const { auth } = store.getState();
-        const projectId = action.projectId;
+        const { auth, projects } = store.getState();
+        const projectId = action.projectId || projects.currentProject.id;
 
         const options = {
           headers: new Headers({

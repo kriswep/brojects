@@ -12,3 +12,7 @@ export const getProjectsError = (error) => ({
   type: ActionTypes.GET_PROJECTS_ERROR,
   error,
 });
+export const setCurrentProject = (projectId) => ({
+  type: ActionTypes.SET_CURRENT_PROJECT,
+  projectId: Number(projectId),
+});

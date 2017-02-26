@@ -4,6 +4,7 @@ import {
   getProjects,
   getProjectsReceived,
   getProjectsError,
+  setCurrentProject,
 } from '../actions/projects';
 
 describe('Projects Actions', () => {
@@ -44,6 +45,27 @@ describe('Projects Actions', () => {
       };
 
       expect(getProjectsError(fixture)).toEqual(expectedResult);
+    });
+  });
+
+  describe('setCurrentProject', () => {
+    it('should return the correct type', () => {
+      const fixture = '123';
+      const expectedResult = {
+        type: ActionTypes.SET_CURRENT_PROJECT,
+        projectId: Number(fixture),
+      };
+
+      expect(setCurrentProject(fixture)).toEqual(expectedResult);
+    });
+    it('should accept numbers only', () => {
+      const fixture = 'string';
+      const expectedResult = {
+        type: ActionTypes.SET_CURRENT_PROJECT,
+        projectId: Number(fixture),
+      };
+
+      expect(setCurrentProject(fixture)).toEqual(expectedResult);
     });
   });
 });

@@ -7,12 +7,12 @@ import Auth from '../components/Auth';
 import Repo from '../components/Repo';
 import Project from '../components/Project';
 
-import { setCurrentRepo } from '../actions/repos';
 import { setAuthtoken } from '../actions/auth';
 import { getColumns } from '../actions/columns';
 import { getColumnData } from '../actions/columnData';
-import { getRepos } from '../actions/repos';
-import { getProjects } from '../actions/projects';
+import { getRepos, setCurrentRepo } from '../actions/repos';
+import { getProjects, setCurrentProject } from '../actions/projects';
+
 import { getCards } from '../actions/cards';
 import './App.css';
 
@@ -55,14 +55,14 @@ export class App extends Component {
     );
   }
 };
-let currentProject = 0;
+// let currentProject = 0;
 export const mapStateToProps = (state) => {
   return {
     auth: state.auth,
     repos: state.repos.data,
     currentRepo: state.repos.currentRepo,
     projects: state.projects.data,
-    currentProject, // state.repos.currentProject,
+    // currentProject, // state.repos.currentProject,
     columns: state.columns,
     columnData: state.columnData,
     cards: state.cards,
@@ -83,7 +83,7 @@ export const mapDispatchToProps = (dispatch) => {
       event.preventDefault();
       dispatch(getRepos());
       // dispatch(getProjects('kriswep/modern-modular-javascript'));
-      dispatch(getColumns('324041'));
+      // dispatch(getColumns('324041'));
       dispatch(getCards('575404'));
       dispatch(getColumnData('575404'));
     },
@@ -93,8 +93,8 @@ export const mapDispatchToProps = (dispatch) => {
       dispatch(getProjects());
     },
     onChangeProject: (event) => {
-      console.log(event);
-      currentProject = event;
+      dispatch(setCurrentProject(event.id));
+      dispatch(getColumns());
     }
   }
 }

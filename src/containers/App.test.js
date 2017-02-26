@@ -79,7 +79,7 @@ describe('App', () => {
       };
       dispatchedProps.onClick(fixture);
       expect(preventDefault.mock.calls.length).toBe(1);
-      expect(dispatch.mock.calls.length).toBe(4);
+      expect(dispatch.mock.calls.length).toBe(3);
       expect(dispatch.mock.calls).toMatchSnapshot();
     });
 
@@ -101,15 +101,12 @@ describe('App', () => {
 
 
     it('should handle onChangeProject', () => {
-      // TODO
       const dispatch = jest.fn();
-      // const preventDefault = jest.fn();
       const dispatchedProps = mapDispatchToProps(dispatch);
-      const fixture = 0;
+      const fixture = {id: 0};
       dispatchedProps.onChangeProject(fixture);
-      // expect(preventDefault.mock.calls.length).toBe(1);
-      // expect(dispatch.mock.calls.length).toBe(2);
-      // expect(dispatch.mock.calls).toMatchSnapshot();
+      expect(dispatch.mock.calls.length).toBe(2);
+      expect(dispatch.mock.calls).toMatchSnapshot();
     });
 
   });

@@ -36,10 +36,10 @@ describe('Api middleware', () => {
 
 
   describe('GET_COLUMNS', () => {
-    it('should format the response correctly on success', (done) => {
+    it('should format the response correctly on success with project specified in action', (done) => {
       const action = {
         type: ActionTypes.GET_COLUMNS,
-        projectId: 'projectId',
+        projectId: 1,
       }
       const store = {
         auth: {
@@ -59,15 +59,45 @@ describe('Api middleware', () => {
         done();
       });
 
-      expect(request.mock.calls[0][0].indexOf('api.github.com/projects/projectId/columns') > 0).toBe(true);
+      expect(request.mock.calls[0][0].indexOf('api.github.com/projects/1/columns') > 0).toBe(true);
 
+    });
+
+    it('should format the response correctly on success with project specified in store', (done) => {
+      const action = {
+        type: ActionTypes.GET_COLUMNS,
+      }
+      const store = {
+        auth: {
+          authtoken: 'secret',
+        },
+        projects: {
+          currentProject: {
+            id: 1
+          }
+        }
+      };
+      const request = jest.fn();
+      request.mockReturnValue(Promise.resolve({ columns: 'something' }));
+      const expectedReturn = {
+        type: ActionTypes.GET_COLUMNS_RECEIVED,
+        data: { columns: 'something' },
+      };
+
+
+      dispatchWithStoreOf(request, store, action, (returnValue) => {
+        expect(returnValue).toEqual(expectedReturn);
+        done();
+      });
+
+      expect(request.mock.calls[0][0].indexOf('api.github.com/projects/1/columns') > 0).toBe(true);
 
     });
 
     it('should handle error', (done) => {
       const action = {
         type: ActionTypes.GET_COLUMNS,
-        projectId: 'projectId',
+        projectId: 1,
       }
       const store = {
         auth: {
@@ -96,7 +126,7 @@ describe('Api middleware', () => {
         done();
       });
 
-      expect(request.mock.calls[0][0].indexOf('api.github.com/projects/projectId/columns') > 0).toBe(true);
+      expect(request.mock.calls[0][0].indexOf('api.github.com/projects/1/columns') > 0).toBe(true);
 
     });
 

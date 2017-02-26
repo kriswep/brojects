@@ -1,13 +1,13 @@
 import * as ActionTypes from '../actions/constants';
 
-export const initialReposState = {
+export const initialProjectsState = {
   loading: false,
   error: false,
   data: [],
-  currentRepo: false,
+  currentProject: false,
 };
 
-const projectsReducer = (state = initialReposState, action) => {
+const projectsReducer = (state = initialProjectsState, action) => {
   switch (action.type) {
     case ActionTypes.GET_PROJECTS:
       return {
@@ -27,6 +27,16 @@ const projectsReducer = (state = initialReposState, action) => {
         ...state,
         loading: false,
         error: action.error,
+      };
+    case ActionTypes.SET_CURRENT_PROJECT:
+      const currentProject = state.data.reduce((prev, curr) => {
+        return curr.id === action.projectId ? curr : prev
+      }, false);
+      const error = currentProject ? false: 'invalid project';
+      return {
+        ...state,
+        error,
+        currentProject,
       };
     default:
       return state;

@@ -1,6 +1,6 @@
 import * as ActionTypes from '../actions/constants';
 
-import projectsReducer, { initialReposState } from './projects';
+import projectsReducer, { initialProjectsState } from './projects';
 
 const fixture = {
   some: 'project',
@@ -9,7 +9,7 @@ const fixture = {
 describe('Projects Reducers', () => {
   describe('projectsReducer', () => {
     it('should return the initial state', () => {
-      expect(projectsReducer(undefined, {})).toEqual(initialReposState);
+      expect(projectsReducer(undefined, {})).toEqual(initialProjectsState);
     });
 
     it('should handle the GET_PROJECTS action', () => {
@@ -17,7 +17,7 @@ describe('Projects Reducers', () => {
         loading: true,
         error: false,
         data: [],
-        currentRepo: false,
+        currentProject: false,
       }
       expect(
         projectsReducer(undefined, {
@@ -31,13 +31,13 @@ describe('Projects Reducers', () => {
         loading: false,
         error: false,
         data: fixture,
-        currentRepo: false,
+        currentProject: false,
       };
       const expectedState = {
         loading: true,
         error: false,
         data: fixture,
-        currentRepo: false,
+        currentProject: false,
       }
       expect(
         projectsReducer(prevState, {
@@ -51,7 +51,7 @@ describe('Projects Reducers', () => {
         loading: false,
         error: false,
         data: fixture,
-        currentRepo: false,
+        currentProject: false,
       }
       expect(
         projectsReducer(undefined, {
@@ -68,13 +68,13 @@ describe('Projects Reducers', () => {
         data: {
           old: 'project',
         },
-        currentRepo: false,
+        currentProject: false,
       };
       const expectedState = {
         loading: false,
         error: false,
         data: fixture,
-        currentRepo: false,
+        currentProject: false,
       }
       expect(
         projectsReducer(prevState, {
@@ -89,7 +89,7 @@ describe('Projects Reducers', () => {
         loading: false,
         error: fixture,
         data: [],
-        currentRepo: false,
+        currentProject: false,
       }
       expect(
         projectsReducer(undefined, {
@@ -106,18 +106,66 @@ describe('Projects Reducers', () => {
           old: 'err',
         },
         data: [],
-        currentRepo: false,
+        currentProject: false,
       };
       const expectedState = {
         loading: false,
         error: fixture,
         data: [],
-        currentRepo: false,
+        currentProject: false,
       }
       expect(
         projectsReducer(prevState, {
           type: ActionTypes.GET_PROJECTS_ERROR,
           error: fixture,
+        })
+      ).toEqual(expectedState);
+    });
+
+    it('should not SET_CURRENT_PROJECT, when project is not loaded', () => {
+      const projectId = 1234;
+      const expectedState = {
+        loading: false,
+        error: 'invalid project',
+        data: [],
+        currentProject: false,
+      }
+      expect(
+        projectsReducer(undefined, {
+          type: ActionTypes.SET_CURRENT_PROJECT,
+          projectId,
+        })
+      ).toEqual(expectedState);
+    });
+
+    it('should handle the SET_CURRENT_PROJECT action with prev state', () => {
+      const project = {
+        id: 1234,
+        some: 'project',
+        data: {},
+      }
+      const prevState = {
+        loading: false,
+        error: {},
+        data: [{
+            id: 1111,
+          },
+          project,
+          {
+            id: 3333,
+          }],
+        currentProject: false,
+      };
+      const expectedState = {
+        loading: false,
+        error: false,
+        data: prevState.data,
+        currentProject: project,
+      }
+      expect(
+        projectsReducer(prevState, {
+          type: ActionTypes.SET_CURRENT_PROJECT,
+          projectId: project.id,
         })
       ).toEqual(expectedState);
     });

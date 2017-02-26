@@ -1,14 +1,15 @@
 exports[`Project renders as expected 1`] = `
 <HeaderTabs
   activeTab={0}
+  onChange={[Function]}
   ripple={true}>
   <Tab
-    id="projectID1"
+    id={1}
     style={Object {}}>
     project/1
   </Tab>
   <Tab
-    id="repoID2"
+    id={2}
     style={Object {}}>
     project/2
   </Tab>
@@ -17,5 +18,7 @@ exports[`Project renders as expected 1`] = `
 
 exports[`Project renders without crashing 1`] = `
 <HeaderTabs
+  activeTab={0}
+  onChange={[Function]}
   ripple={true} />
 `;

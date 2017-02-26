@@ -9,6 +9,23 @@ Array [
 ]
 `;
 
+exports[`App mapDispatchToProps should handle onChangeProject 1`] = `
+Array [
+  Array [
+    Object {
+      "projectId": 0,
+      "type": "brojects/action/SET_CURRENT_PROJECT",
+    },
+  ],
+  Array [
+    Object {
+      "projectId": undefined,
+      "type": "brojects/action/GET_COLUMNS",
+    },
+  ],
+]
+`;
+
 exports[`App mapDispatchToProps should handle onChangeRepo 1`] = `
 Array [
   Array [
@@ -31,12 +48,6 @@ Array [
   Array [
     Object {
       "type": "brojects/action/GET_REPOS",
-    },
-  ],
-  Array [
-    Object {
-      "projectId": "324041",
-      "type": "brojects/action/GET_COLUMNS",
     },
   ],
   Array [
@@ -73,7 +84,6 @@ Object {
   "cards": undefined,
   "columnData": undefined,
   "columns": undefined,
-  "currentProject": 0,
   "currentRepo": undefined,
   "projects": Array [
     "value",
