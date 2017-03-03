@@ -6,6 +6,15 @@ export const initialCardsState = {
   data: {},
 };
 
+
+/**
+ * cards reducer
+ * @param {object} state - the current state object
+ * @param {object} action - the action, this reducer handles action of type 
+ * ActionTypes.GET_CARDS, ActionTypes.GET_CARDS_RECEIVED, ActionTypes.GET_CARDS_ERROR
+ * 
+ * @returns {object} - the new state
+ */
 const cardsReducer = (state = initialCardsState, action) => {
   switch (action.type) {
     case ActionTypes.GET_CARDS:

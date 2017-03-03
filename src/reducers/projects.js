@@ -7,6 +7,15 @@ export const initialProjectsState = {
   currentProject: false,
 };
 
+/**
+ * projects reducer
+ * @param {object} state - the current state object
+ * @param {object} action - the action, this reducer handles action of type 
+ * ActionTypes.GET_PROJECTS, ActionTypes.GET_PROJECTS_RECEIVED, ActionTypes.GET_PROJECTS_ERROR
+ * ActionTypes.SET_CURRENT_PROJECT
+ * 
+ * @returns {object} - the new state
+ */
 const projectsReducer = (state = initialProjectsState, action) => {
   switch (action.type) {
     case ActionTypes.GET_PROJECTS:

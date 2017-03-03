@@ -7,6 +7,15 @@ export const initialReposState = {
   currentRepo: false,
 };
 
+/**
+ * repos reducer
+ * @param {object} state - the current state object
+ * @param {object} action - the action, this reducer handles action of type 
+ * ActionTypes.GET_REPOS, ActionTypes.GET_REPOS_RECEIVED, ActionTypes.GET_REPOS_ERROR
+ * ActionTypes.SET_CURRENT_REPO
+ * 
+ * @returns {object} - the new state
+ */
 const reposReducer = (state = initialReposState, action) => {
   switch (action.type) {
     case ActionTypes.GET_REPOS:
