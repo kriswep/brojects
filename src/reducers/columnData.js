@@ -1,5 +1,6 @@
 import * as ActionTypes from '../actions/constants';
 
+/** the initial state regarding columnData  */
 export const initialAuthState = {
   loading: false,
   error: false,
@@ -7,12 +8,13 @@ export const initialAuthState = {
 };
 
 /**
- * columnData reducer
- * @param {object} state - the current state object
- * @param {object} action - the action, this reducer handles action of type 
+ * handles columnData state
+ * 
+ * @param {object} state    the current state object
+ * @param {object} action   the action, this reducer handles action of type 
  * ActionTypes.GET_COLUMN_DATA, ActionTypes.GET_COLUMN_DATA_RECEIVED, ActionTypes.GET_COLUMN_DATA_ERROR
  * 
- * @returns {object} - the new state
+ * @returns {object}        the new state
  */
 const columnDataReducer = (state = initialAuthState, action) => {
   switch (action.type) {

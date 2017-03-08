@@ -1,19 +1,20 @@
 import * as ActionTypes from '../actions/constants';
 
+/** the initial state regarding cards  */
 export const initialCardsState = {
   loading: false,
   error: false,
   data: {},
 };
 
-
 /**
- * cards reducer
- * @param {object} state - the current state object
- * @param {object} action - the action, this reducer handles action of type 
+ * handles cards state
+ * 
+ * @param {object} state    the current state object
+ * @param {object} action   the action, this reducer handles action of type 
  * ActionTypes.GET_CARDS, ActionTypes.GET_CARDS_RECEIVED, ActionTypes.GET_CARDS_ERROR
  * 
- * @returns {object} - the new state
+ * @returns {object}        the new state
  */
 const cardsReducer = (state = initialCardsState, action) => {
   switch (action.type) {

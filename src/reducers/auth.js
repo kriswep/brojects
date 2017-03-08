@@ -1,15 +1,17 @@
 import * as ActionTypes from '../actions/constants';
 
+/** the initial state regarding authentification  */
 export const initialAuthState = {
   authtoken: false,
 };
 
 /**
- * auth reducer
- * @param {object} state - the current state object
- * @param {object} action - the action, this reducer handles action of type ActionTypes.SET_AUTHTOKEN
+ * handles authentification state
  * 
- * @returns {object} - the new state
+ * @param {object} state    the current state object
+ * @param {object} action   the action, this reducer handles action of type ActionTypes.SET_AUTHTOKEN
+ * 
+ * @returns {object}        the new state
  */
 const authReducer = (state = initialAuthState, action) => {
   switch (action.type) {

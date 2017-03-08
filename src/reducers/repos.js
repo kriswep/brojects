@@ -1,5 +1,6 @@
 import * as ActionTypes from '../actions/constants';
 
+/** the initial state regarding repos  */
 export const initialReposState = {
   loading: false,
   error: false,
@@ -8,13 +9,13 @@ export const initialReposState = {
 };
 
 /**
- * repos reducer
- * @param {object} state - the current state object
- * @param {object} action - the action, this reducer handles action of type 
+ * handles repos state
+ * @param {object} state    the current state object
+ * @param {object} action   the action, this reducer handles action of type 
  * ActionTypes.GET_REPOS, ActionTypes.GET_REPOS_RECEIVED, ActionTypes.GET_REPOS_ERROR
  * ActionTypes.SET_CURRENT_REPO
  * 
- * @returns {object} - the new state
+ * @returns {object}        the new state
  */
 const reposReducer = (state = initialReposState, action) => {
   switch (action.type) {

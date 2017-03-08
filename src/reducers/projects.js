@@ -1,5 +1,6 @@
 import * as ActionTypes from '../actions/constants';
 
+/** the initial state regarding projects  */
 export const initialProjectsState = {
   loading: false,
   error: false,
@@ -8,13 +9,14 @@ export const initialProjectsState = {
 };
 
 /**
- * projects reducer
- * @param {object} state - the current state object
- * @param {object} action - the action, this reducer handles action of type 
+ * handles projects state
+ * 
+ * @param {object} state    the current state object
+ * @param {object} action   the action, this reducer handles action of type 
  * ActionTypes.GET_PROJECTS, ActionTypes.GET_PROJECTS_RECEIVED, ActionTypes.GET_PROJECTS_ERROR
  * ActionTypes.SET_CURRENT_PROJECT
  * 
- * @returns {object} - the new state
+ * @returns {object}        the new state
  */
 const projectsReducer = (state = initialProjectsState, action) => {
   switch (action.type) {
