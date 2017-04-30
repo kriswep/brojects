@@ -5,6 +5,7 @@
   "author": "Christoph Weber <kriswep@wetainment.com> (https://wetainment.com/)",
   "license": "MIT",
   "devDependencies": {
+    "coveralls": "^2.13.1",
     "enzyme": "^2.7.1",
     "enzyme-to-json": "^1.5.0",
     "react-addons-test-utils": "^15.4.2",
@@ -21,6 +22,7 @@
     "redux-thunk": "^2.2.0"
   },
   "scripts": {
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

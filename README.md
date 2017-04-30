@@ -1,5 +1,6 @@
 [![unstable](http://badges.github.io/stability-badges/dist/unstable.svg)](https://github.com/badges/stability-badges#stability-2---unstable)
 [![Build Status](https://travis-ci.org/kriswep/brojects.svg?branch=master)](https://travis-ci.org/kriswep/brojects)
+[![Coverage Status](https://coveralls.io/repos/github/kriswep/brojects/badge.svg?branch=master)](https://coveralls.io/github/kriswep/brojects?branch=master)
 
 # &lt;brojects&gt;
 
