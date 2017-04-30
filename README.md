@@ -1,4 +1,5 @@
 [![unstable](http://badges.github.io/stability-badges/dist/unstable.svg)](https://github.com/badges/stability-badges#stability-2---unstable)
+[![Build Status](https://travis-ci.org/kriswep/brojects.svg?branch=master)](https://travis-ci.org/kriswep/brojects)
 
 # &lt;brojects&gt;
 
@@ -10,7 +11,7 @@ Interact<sve and flexible project management on top of Github projects.
 
 **Attention:** This is still 'Work in Progress' and not yet usable.
 
-The plan is to make an improved UI for Github Project with the help of their API. 
+The plan is to make an improved UI for Github Project with the help of their API.
 That means, you will always be able to switch back to normal Github Pages.
 
 **GOALS:**
